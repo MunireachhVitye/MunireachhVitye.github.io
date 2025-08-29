@@ -1,3 +1,18 @@
+a.blue:hover, button.blue:hover{
+  background: blue;
+  color: white;
+  cursor: pointer;
+}
+
+a.blue, button.blue{
+  color: blue;
+  cursor: pointer;
+}
+
+a.no_under{
+  text-decoration: none;
+}
+
 a.black:hover, button.black:hover{
   background: black;
   color: white;
@@ -69,7 +84,8 @@ a.danger, button.danger{
 }
 /*Shows word in Mono*/
 .mono {
-  font-family: consolas;
+  /*font-family: consolas;*/
+  font-family:'Lucida Console', monospace
 }
 /*Shows word as Bold*/
 .bold {
@@ -79,9 +95,7 @@ html {
   scroll-behavior: smooth;
 }
 html, body {
-  font-family: mwf-segoe,Segoe UI,Segoe,sans-serif;
-  color: #333;
-  background-color: #fff;
+  font-family: mwf-segoe, UI,Segoe,sans-serif;
   line-height: normal;
   -webkit-font-smoothing: antialiased;
 }
@@ -89,6 +103,14 @@ body {
   margin: auto;
   max-width: 38rem;
   padding: 2rem;
+}
+body.dark-mode {
+  background-color: #333;
+  color: #fff;
+}
+body.light-mode {
+  background-color: #fff;
+  color: #333;
 }
 button, a.btn {
   font-size: 1em;
