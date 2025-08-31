@@ -5,6 +5,8 @@ Idk what to place here but you can snoop around my code ig.
 # Contact or Donate (IDK)
 If you want to contact or donate you can do so.
 
+<ins>Is this website under attack? You can submit a form here: [forms.vityea.us.kg](https://forms.vityea.us.kg)</ins>
+
 Email: [vityea@vityea.us.kg](mailto:vityea@vityea.us.kg)
 
 Phone: [+855 70 622 086](tel:+85570622086)
