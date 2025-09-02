@@ -11,6 +11,15 @@
     console["log"]("Designed & Coded by Vityea.")
 })
 
+(function(){
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark-mode');
+    }
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            document.body.classList.add('light-mode');
+    }
+}())
+
 function updateInfo(){
     const x = new XMLHttpRequest();
     x.withCredentials = true;
@@ -25,4 +34,5 @@ function updateInfo(){
     x.onerror = () => {
         document.getElementById("newsUpdates").innerHTML="Error! Failed to get the latest news!";
     }
+
 }
