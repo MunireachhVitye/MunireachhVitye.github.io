@@ -112,6 +112,10 @@ body.light-mode {
   background-color: #fff;
   color: #333;
 }
+body {
+  background-color: #fff;
+  color: #333;
+}
 button, a.btn {
   font-size: 1em;
   cursor: pointer;
@@ -263,3 +267,4 @@ button, a.btn {
 button:hover, a.btn:hover, a.btn {
   text-decoration: none;
 }
+
