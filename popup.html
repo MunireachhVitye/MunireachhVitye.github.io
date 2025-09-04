@@ -1,0 +1,156 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Popup Chat App</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="./ms.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+<script src="./popup_signin.js"></script>
+  <style>
+    /* Add your CSS styles here */
+
+.popup-chat {
+background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+  width: 300px;
+  height: 400px;
+}
+
+
+.popup-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  cursor: move;
+}
+
+.popup-chat-close {
+  color: #ccc;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.popup-chat-close:hover {
+  color: #04AA6D;
+}
+
+.chat-messages {
+  overflow-y: auto;
+  height: 350px;
+}
+
+.chat-messages p, .chat-messages div {
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+  </style>
+</head>
+<body onload='dragElement(document.getElementById("popup-chat"));'>
+<h1>Vityea All-in-one [DEMO]</h1>
+<p>Built by Vityea.</p>
+  <!-- The popup chat window -->
+  <div class="popup-chat" id="popup-chat">
+
+<div class="popup-chat-header">
+  <h3>VAS Panel</h3>
+  <a href="#" class="popup-chat-close" onclick="hidePopupChat()" title="Exit"><i class="fa fa-x"></i></a>
+</div>
+
+    <!-- The chat messages -->
+    <div class="chat-messages">
+<p>
+Welcome to the Panel Window.
+</p>
+<div id="loggedIN">Whoops! You're not logged in!<br><button class="black" onclick="hidePopupChat()">You may close this window</button><br>Or <a href="./login.html" class="black btn">Sign in here</a></div>
+</div>
+  </div>
+
+  <!-- Add your JavaScript code here -->
+<script>
+
+// Show the popup chat window
+function showPopupChat() {
+  var popupChat = document.querySelector('.popup-chat');
+  popupChat.style.display = 'block';
+}
+
+// Hide the popup chat window
+function hidePopupChat() {
+  var popupChat = document.querySelector('.popup-chat');
+  popupChat.style.display = 'none';
+}
+
+// Send a chat message
+function sendMessage() {
+  var messageInput = document.querySelector('.message-input-form input');
+  var message = messageInput.value;
+
+  // Add the message to the chat window
+  var chatMessages = document.querySelector('.chat-messages');
+  var messageElement = document.createElement('div');
+  messageElement.textContent = message;
+  chatMessages.appendChild(messageElement);
+
+  // Clear the message input field
+  messageInput.value = '';
+}
+
+// Add an event listener to the "Send" button
+document.querySelector('.message-input-form button').addEventListener('click', sendMessage);
+
+// Show the popup chat window when the page loads
+window.onload = showPopupChat;
+//Make the DIV element draggagle:
+
+function dragElement(elmnt) {
+  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+  if (document.getElementById(elmnt.id + "header")) {
+    /* if present, the header is where you move the DIV from:*/
+    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+  } else {
+    /* otherwise, move the DIV from anywhere inside the DIV:*/
+    elmnt.onmousedown = dragMouseDown;
+  }
+
+  function dragMouseDown(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // get the mouse cursor position at startup:
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    document.onmouseup = closeDragElement;
+    // call a function whenever the cursor moves:
+    document.onmousemove = elementDrag;
+  }
+
+  function elementDrag(e) {
+    e = e || window.event;
+    e.preventDefault();
+    // calculate the new cursor position:
+    pos1 = pos3 - e.clientX;
+    pos2 = pos4 - e.clientY;
+    pos3 = e.clientX;
+    pos4 = e.clientY;
+    // set the element's new position:
+    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+  }
+
+  function closeDragElement() {
+    /* stop moving when mouse button is released:*/
+    document.onmouseup = null;
+    document.onmousemove = null;
+  }
+}
+</script>
+</body>
+</html>

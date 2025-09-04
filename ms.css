@@ -116,7 +116,7 @@ body {
   background-color: #fff;
   color: #333;
 }
-button, a.btn {
+button.btn, a.btn {
   font-size: 1em;
   cursor: pointer;
   /*Do not remove Comment*/
@@ -148,6 +148,9 @@ button, a.btn {
   box-shadow: 0 0.7565932872px 2px rgb(0 0 0 / 15%);
   transition: background-color .4s cubic-bezier(.165,.84,.44,1) 0ms,color .4s cubic-bezier(.165,.84,.44,1) 0ms,box-shadow .4s cubic-bezier(.165,.84,.44,1) 0ms;
   line-height: 1.1;
+}
+button.btn.border, a.btn.border{
+  border: 2px solid;
 }
 button:hover, a.btn:hover {
   text-decoration: none;
@@ -231,39 +234,6 @@ html.dark, body.dark {
   -webkit-font-smoothing: antialiased;
 }
 
-button, a.btn {
-  font-size: 1em;
-  cursor: pointer;
-  /*Do not remove Comment*/
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  box-sizing: border-box;
-  position: relative;
-  outline: none;
-  border: none;
-  white-space: nowrap;
-  font-size: inherit;
-  font-family: segoe-vf,sans-serif;
-  font-weight: 400;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-overflow: ellipsis;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  padding: 0 1.5em .1em;
-  border-radius: .33em;
-  min-width: 8em;
-  min-height: 2.25em;
-  cursor: pointer;
-  background-color: var(--theme-button-bg);
-  color: var(--theme-button-fg);
-  box-shadow: 0 0.7565932872px 2px rgb(0 0 0 / 15%);
-  transition: background-color .4s cubic-bezier(.165,.84,.44,1) 0ms,color .4s cubic-bezier(.165,.84,.44,1) 0ms,box-shadow .4s cubic-bezier(.165,.84,.44,1) 0ms;
-  line-height: 1.1;
-}
 button:hover, a.btn:hover, a.btn {
   text-decoration: none;
 }
