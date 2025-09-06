@@ -13,12 +13,12 @@ a.no_under{
   text-decoration: none;
 }
 
-a.black:hover, button.black:hover{
+body.light-mode a.black:hover, body.light-mode button.black:hover{
   background: black;
   color: white;
   cursor: pointer;
 }
-a.black, button.black{
+body.light-mode a.black, body.light-mode button.black{
   color: black;
   cursor: pointer;
 }
@@ -157,12 +157,12 @@ button:hover, a.btn:hover {
 }
 
 /*Dark Mode*/
-a.white:hover, button.white:hover{
+body.dark-mode a.black:hover, body.dark-mode button.black:hover{
   background: white;
   color: gray;
   cursor: pointer;
 }
-a.white, button.white{
+body.dark-mode a.black, body.dark-mode button.black{
   color: white;
   cursor: pointer;
 }

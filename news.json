@@ -3,18 +3,22 @@
         "name": "Nan Munireachh Vityea",
         "date": "2025-09-04 09:07:00 +0700",
         "type": "news",
+        "edited": false,
         "content": "Welcome to Vityea's news!<br>Right now, this is all I can say.<br>Stay tuned for more updates!"
     },
     {
         "name":"Nan Munireachh Vityea",
         "date": "2025-09-05 06:33:00 +0700",
         "type": "news",
+        "edited": false,
         "content": "Yo! I'm currently in Vietnam for a short trip.<br>I'll be back on Saturday, 6th September 2025.<br>If you need to call to me, here's my Vietnamese number: <a href=\"tel:+84923412346\" target=\"blank\" rel=\"noopener\" class=\"black btn\">+84 92 3412 346</a>."
     },
     {
         "name": "Nan Munireachh Vityea",
         "date": "2025-09-06 07:52:00 +0700",
         "type": "news",
-        "content": "Hiya! I'm departing back to Cambodia today.<br>I'll be back around 6 or 7 PM Cambodian Time.<br>If y'all need some APIs to build, hit me up!"
+        "edited": true,
+        "content": "Hiya! I'm departing back to Cambodia today.<br>I'll be back around 6 or 7 PM Cambodian Time.<br>If y'all need some APIs to build, hit me up!",
+        "editContent": "Edit: I added a Settings page to toggle Dark Mode and Light Mode.<br>Check it out!"
     }
 ]
