@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Settings</title>
+    <meta name="description" content="Customize how you access this website" />
+    <meta name="language" content="English" />
+    <base href="./">
+    <meta name="description" content="Customize how you access this website">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no,viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-title" content="Settings">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Settings">
+    <meta name="application-name" content="Settings">
+    <meta name="msapplication-TileColor" content="#2defc2">
+    <meta name="msapplication-TileImage" content="144x144.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="google" content="notranslate">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vityea.us.kg/settings.html">
+    <meta property="og:title" content="Settings">
+    <meta property="og:description" content="Customize how you access this website">
+    <meta property="og:image" content="192x192.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vityea.us.kg/settings.html">
+    <meta property="twitter:title" content="Settings">
+    <meta property="twitter:description" content="Customize how you access this website">
+    <meta property="twitter:image" content="192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="192x192.png">
+    <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://vityea.us.kg/settings.html">
+    <link rel="manifest" id="manifest" href="site.webmanifest">
+    <link href="ms.css" rel="stylesheet" type="text/css" />
+    <script src="font_awesome.all.js"></script>
+    <script src="vityea.js" sponsor="MDA Organization"></script>
+</head>
+<body>
+<h1>Vityea Personal Website</h1>
+<hr>
+<legend><h3>Settings</h3><a href="" class="black no_under">Back to main menu.</a></legend>
+<fieldset>
+    <noscript>
+        <p>The actions below will require JavaScript magic inorder to run.<br><a href="https://enable-javascript.com" target="_blank" rel="noopener">Learn to enable here: https://enable-javascript.com</a></p>
+    </noscript>
+    <p>Light/Dark Mode Option</p>
+    <button onclick="shiftMode()" class="btn border black" id="btnSwitch"><i class="fas fa-toggle-off">Switch Mode?</i></button>
+    <script>
+    window.onload = function() {
+        if (localStorage.getItem('bgMode') === 'dark') {
+            document.getElementById("btnSwitch").innerHTML = '<i class="fas fa-toggle-on">Switch Mode?</i>';
+        } else {
+            document.getElementById("btnSwitch").innerHTML = '<i class="fas fa-toggle-off">Switch Mode?</i>';
+        }
+    };
+    function triggerSettingChange() {
+        if (localStorage.getItem('bgMode') === 'dark') {
+            document.getElementById("btnSwitch").innerHTML = '<i class="fas fa-toggle-on">Switch Mode?</i>';
+        } else {
+            document.getElementById("btnSwitch").innerHTML = '<i class="fas fa-toggle-off">Switch Mode?</i>';
+        }
+    }
+    </script>
+</fieldset>
+<hr>
+<p>Files hosted on Github and served via Cloudflare.</p>
+<p>This page was last updated at: 08:00 AM Vietnamiese Time on Saturday, 06 September 2025</p>
+</body>
+</html>

@@ -13,10 +13,10 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchNews();
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem("bgMode") === "dark") {
+    if (localStorage.getItem("bgMode") === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('dark-mode');
     }
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches || localStorage.getItem("bgMode") === "light") {
+    if (localStorage.getItem("bgMode") === "light" || window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('light-mode');
     }
 })
@@ -25,6 +25,8 @@ function shiftMode(){
     document.body.classList.toggle('dark-mode');
     document.body.classList.toggle('light-mode');
     showCustomAlert("Mode changed to "+(document.body.classList.contains('dark-mode') ? "Dark Mode" : "Light Mode")+".");
+    localStorage.setItem("bgMode", document.body.classList.contains('dark-mode') ? "dark" : "light");
+    triggerSettingChange();
 }
 
 function fetchNews(bypass) {
@@ -47,7 +49,15 @@ function fetchNews(bypass) {
             if (nameList.includes(item.name.toLowerCase())) return "Author: <b>Owner</b>";
             else return "Author: <b>"+item.name+"</b>";
         }
-        newsItem.innerHTML = `Date: ${new Date(item.date)}<br>${nameProtocol()}<br>Type: ${typeContent(item.type)}<br>${item.content}`;
+        function editedContent(){
+            if (item.edited) return "<br><div class=\"tooltip\"><i class=\"far fa-pen-to-square\"></i><span class=\"tooltiptext\">This content was modified by the original owner.</span></div>";
+            else return "";
+        }
+        function checkedit(){
+            if (item.editContent) return item.editContent;
+            else return "";
+        }
+        newsItem.innerHTML = `Date: ${new Date(item.date)}<br>${nameProtocol()}${editedContent()}<br>Type: ${typeContent(item.type)}<br>${item.content}<br>${checkedit()}`;
         newsUpdatesDiv.appendChild(newsItem);
     })
     .catch(error => {
