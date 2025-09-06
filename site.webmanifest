@@ -1,8 +1,8 @@
 {
-    "name": "Vityea All-in-one",
-    "short_name": "Vityea App",
+    "name": "Vityea Personal Website (App)",
+    "short_name": "VPW App",
     "start_url": "./",
-    "description": "Vityea All-in-one is a app similar to Telegram, WeChat & Discord.",
+    "description": "The official website/app to contact to Vityea.",
     "icons": [
         {
             "src": "36x36.png",
