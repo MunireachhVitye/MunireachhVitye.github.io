@@ -10,5 +10,11 @@
         "date": "2025-09-05 06:33:00 +0700",
         "type": "news",
         "content": "Yo! I'm currently in Vietnam for a short trip.<br>I'll be back on Saturday, 6th September 2025.<br>If you need to call to me, here's my Vietnamese number: <a href=\"tel:+84923412346\" target=\"blank\" rel=\"noopener\" class=\"black btn\">+84 92 3412 346</a>."
+    },
+    {
+        "name": "Nan Munireachh Vityea",
+        "date": "2025-09-06 07:52:00 +0700",
+        "type": "news",
+        "content": "Hiya! I'm departing back to Cambodia today.<br>I'll be back around 6 or 7 PM Cambodian Time.<br>If y'all need some APIs to build, hit me up!"
     }
 ]

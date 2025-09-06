@@ -13,15 +13,22 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchNews();
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches || localStorage.getItem("bgMode") === "dark") {
             document.body.classList.add('dark-mode');
     }
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches || localStorage.getItem("bgMode") === "light") {
             document.body.classList.add('light-mode');
     }
 })
 
-function fetchNews() {
+function shiftMode(){
+    document.body.classList.toggle('dark-mode');
+    document.body.classList.toggle('light-mode');
+    showCustomAlert("Mode changed to "+(document.body.classList.contains('dark-mode') ? "Dark Mode" : "Light Mode")+".");
+}
+
+function fetchNews(bypass) {
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '/Users/mac/Documents/GitHub/MunireachhVitye.github.io/index.html' || bypass === true) {
     fetch('./news.json')
     .then(response => response.json())
     .then(data => {
@@ -46,8 +53,10 @@ function fetchNews() {
     .catch(error => {
         console.error('Error fetching news:', error);
         const newsUpdatesDiv = document.getElementById('newsUpdates');
-        newsUpdatesDiv.innerHTML = '<p>Failed to load news updates. Please try again later.</p>';
+        newsUpdatesDiv.innerHTML = '<p>Failed to load news updates. Please try again later or click <button onclick="fetchNews()" class="btn black border">Refresh</button> to try again. '+new Date()+'</p>';
     });
+}
+else return console.log("Not on index page nor bypass is true.");
 }
 function typeContent(type){
     //Just news
@@ -62,4 +71,29 @@ function typeContent(type){
     if (type === "event") return "Event";
     //General stuff
     return "General";
+}
+
+function showCustomAlert(message) {
+if (document.getElementById('customAlert')) {
+    document.getElementById('alertMessage').innerText = message;
+    showAlert();
+    return;
+}
+  var alertHTML = `<div id="customAlert" class="alert" style="display: flex;">
+        <div class="alert-content">
+            <p id="alertMessage">${message}</p>
+            <button onclick="closeCustomAlert()" class="border black btn">OK</button>
+        </div>
+    </div>`;
+    var alertDiv = document.createElement('div');
+    alertDiv.innerHTML = alertHTML;
+    document.body.appendChild(alertDiv);
+}
+
+function showAlert(){
+    document.getElementById('customAlert').style.display = 'flex';
+}
+
+function closeCustomAlert() {
+  document.getElementById('customAlert').style.display = 'none';
 }
