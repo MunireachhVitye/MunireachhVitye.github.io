@@ -26,6 +26,6 @@
         "date": "2025-09-11 20:45:16 +0700",
         "type": "event",
         "edited": false,
-        "content": "Hello There!<br>It's a me! Vityea (Bruh)<br>Unlike any type of news today.<br>This is a limited-time event.<br>It's actually getting a free email forwarder with the vityea.us.kg domain.<br>You can submit here: <a href=\"https://forms.vityea.us.kg\" target=\"_blank\" rel=\"noopener\">https://forms.vityea.us.kg</a><br>A random winner will be selected.<br>Signed: Vityea."
+        "content": "Hello There!<br>It's a me! Vityea (Bruh)<br>Unlike any type of news today.<br>This is a limited-time event.<br>It's actually getting a free email forwarder with the vityea.us.kg domain.<br>You can submit here: <a href=\"https://forms.vityea.us.kg\" class=\"black\" target=\"_blank\" rel=\"noopener\">https://forms.vityea.us.kg</a><br>A random winner will be selected.<br>Signed: Vityea."
     }
 ]
