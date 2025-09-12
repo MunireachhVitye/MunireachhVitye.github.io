@@ -31,7 +31,8 @@ function shiftMode(){
 
 function fetchNews(bypass) {
     if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '/Users/mac/Documents/GitHub/MunireachhVitye.github.io/index.html' || bypass === true) {
-    fetch('./news.json')
+        //For some reason each browsers are high on crack so we added Math.random() and Date.now() to decache and to roast your internet connection.
+    fetch('./news.json?'+Math.random()+'&timestamp='+Date.now())
     .then(response => response.json())
     .then(data => {
         const newsUpdatesDiv = document.getElementById('newsUpdates');
@@ -63,7 +64,7 @@ function fetchNews(bypass) {
     .catch(error => {
         console.error('Error fetching news:', error);
         const newsUpdatesDiv = document.getElementById('newsUpdates');
-        newsUpdatesDiv.innerHTML = '<p>Failed to load news updates. Please try again later or click <button onclick="fetchNews()" class="btn black border">Refresh</button> to try again. '+new Date()+'</p>';
+        newsUpdatesDiv.innerHTML = '<p>Bro your internet connection is laggy asf. Please wait until you have more FPS then click <button onclick="fetchNews()" class="btn black border">Refresh</button> to try again. '+new Date()+'</p>';
     });
 }
 else return console.log("Not on index page nor bypass is true.");
@@ -106,4 +107,5 @@ function showAlert(){
 
 function closeCustomAlert() {
   document.getElementById('customAlert').style.display = 'none';
+
 }
