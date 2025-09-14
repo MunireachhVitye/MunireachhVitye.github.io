@@ -35,7 +35,7 @@
         "edited": true,
         "content": "Hello clients!<br>Incase you didn't know we're doing a limited time email forwarding for free with the domain of vityea.us.kg<br>For no reason at all, Cloudflare is having issues with their APIs. As such, the domain <a href=\"https://forms.vityea.us.kg\" target=\"_blank\" rel=\"noopener\" class=\"black\">forms.vityea.us.kg</a><br>See attachment below:<br><a href=\"./img/IMG_0044.png\"><img alt=\"Screenshot on iPad showing Cloudflare 522 error.\" src=\"./img/IMG_0044.png\" style=\"width: 20%; height: 20%\"></a><br>We apologize for not being able to serve the Google Forms to submit as this is beyond our control.<br><br>Issued announcement from: Vityea Website Mitigations Officer.",
         "editContent": "Nan Munireachh Vityea Edit: Someone accidentally pushed/commited the JSON of <b>\"edit\" false</b> without the parameter of <b>:</b> causing the news to not load.<br>Please read before commiting!<br>Vityea Edit 2: Added class=\"black\" to URL and resized image to 20px for both width and height<br>Vityea Edit 3: I also accidentally pushed/commited without \"\\\" my mistake.<br>Vityea Edit 4: I added Link on image since it's too small to view."
-    }
+    },
     {
         "name": "Vityea Website Mitigations Officer",
         "date": "2025-09-14 16:43:30 +0700",
