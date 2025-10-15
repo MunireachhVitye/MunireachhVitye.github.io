@@ -1,0 +1,123 @@
+<!--
+    Excel demo I guess
+        ~ Vityea 15.10.2025
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+	<title>Spreadsheets Demo</title>
+    <meta name="description" content="Just normal spreadsheets" />
+    <meta name="language" content="English" />
+    <base href="./">
+    <meta name="description" content="Just normal spreadsheets">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no,viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-title" content="Spreadsheets Demo">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Spreadsheets Demo">
+    <meta name="application-name" content="Spreadsheets Demo">
+    <meta name="msapplication-TileColor" content="#2defc2">
+    <meta name="msapplication-TileImage" content="144x144.png">
+    <meta name="msapplication-config" content="browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="google" content="notranslate">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vityea.us.kg/excel">
+    <meta property="og:title" content="Spreadsheets Demo">
+    <meta property="og:description" content="Just normal spreadsheets">
+    <meta property="og:image" content="192x192.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://vityea.us.kg/excel">
+    <meta property="twitter:title" content="Spreadsheets Demo">
+    <meta property="twitter:description" content="Just normal spreadsheets">
+    <meta property="twitter:image" content="192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="192x192.png">
+    <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://vityea.us.kg/excel">
+    <link rel="manifest" id="manifest" href="site.webmanifest">
+    <link href="ms.css" rel="stylesheet" type="text/css" />
+    <script src="font_awesome.all.js"></script>
+    <script src="./vityea.js" author="Nan Munireachh Vityea" webhash="LOGIN"></script>
+</head>
+<body>
+<h3>Spreadsheets Demo</h3>
+<p>Logged In as: <span id="username">Nan Munireachh Vityea</span>.  Rank: <b>CLASS: <span id="class">A</span>. LEVEL: <span id="level">10</span></b></p>
+    <style>
+        body { /*font-family: Arial, sans-serif;*/ margin: 20px; }
+        .excel-grid { border-collapse: collapse; margin: 15px 0; }
+        .excel-grid td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            min-width: 80px;
+            height: 20px;
+            white-space: nowrap; 
+            outline: none; /* Remove focus outline */
+        }
+        .header-cell {
+            font-weight: bold;
+            background-color: #e0e0e0;
+        }
+        .editable[contenteditable="true"] {
+            background-color: #fffacd; /* Light yellow when editable */
+            border: 1px solid #3498db; /* Blue border for focus */
+        }
+    </style>
+<table class="excel-grid">
+    <tr contenteditable="false">
+        <th>User IDs</th>
+        <th>Username</th>
+        <th>Access</th>
+        <th>Admin</th>
+        <th>Moderator</th>
+        <th>Banned</th>
+        <th>Ban Reason</th>
+        <th>Admin Action</th>
+        <th>Last Login</th>
+        <th>Comments [Only you can see it]</th>
+    </tr>
+    <tr contenteditable="true">
+        <td contenteditable="false">01</td>
+        <td contenteditable="false">Nan Munireachh Vityea</td>
+        <td contenteditable="false">allow</td>
+        <td contenteditable="false">is_admin</td>
+        <td contenteditable="false">is_mod</td>
+        <td contenteditable="false">no_ban</td>
+        <td contenteditable="false"></td>
+        <td contenteditable="false"></td>
+        <td contenteditable="false">[Redacted]</td>
+        <td contenteditable="true"></td>
+    </tr>
+    <tr contenteditable="true">
+        <td contenteditable="false">02</td>
+        <td contenteditable="false">John Doe</td>
+        <td>disallow</td>
+        <td>no_admin</td>
+        <td>no_mod</td>
+        <td contenteditable="false">ban</td>
+        <td contenteditable="false">Abusing too much power.</td>
+        <td contenteditable="false">Nan Munireachh Vityea</td>
+        <td contenteditable="false">15/OCT/2025</td>
+        <td></td>
+    </tr>
+    <tr contenteditable="true">
+        <td contenteditable="false">03</td>
+        <td contenteditable="false">Mr Discreet Animation</td>
+        <td>allow</td>
+        <td>no_admin</td>
+        <td>is_mod</td>
+        <td contenteditable="false">no_ban</td>
+        <td contenteditable="false"></td>
+        <td contenteditable="false"></td>
+        <td contenteditable="false">15/OCT/2025</td>
+        <td></td>
+    </tr>
+</table>
+<hr>
+To add a user/admin/moderator click <button onclick="addUser()">here</button> and then fill in their info.
+</body>
+</html>
