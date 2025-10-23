@@ -64,5 +64,12 @@
         "type": "news",
         "edited": false,
         "content": "Hello guys!<br>vas-comms.web.app will be soon migrated to this website you're currently viewing.<br>To prevent the old links from being broken we have allocated a domain called:<br>old.vityea.us.kg in order to preserve the site.<br>As you guys know, my hard drive faced data corruption so I'm working on thin ice here.<br>I have managed to recover atleast 40% of the current data.<br>As soon as I'm done archiving, I will re-route all the links from: vas-comms.web.app to vityea.us.kg with the exception of some links being redirected to: old.vityea.us.kg<br>Anyhow, you can view the original site by clicking here: <a href=\"https://vas-comms.web.app/\" class=\"black\">https://vas-comms.web.app/</a> or the new site: <a href=\"https://old.vityea.us.kg/\" class=\"black\">https://old.vityea.us.kg/</a>"
+    },
+    {
+        "name":"Nan Munireachh Vityea",
+        "date": "2025-10-23 20:51:33 +0700",
+        "type": "news",
+        "edited": false,
+        "content": "Hi there!<br>There's no updates for today but I'm working on a Cloud Point-of-sale project.<br>The expected price will be 10 USD monthly or 100 USD yearly.<br>This Cloud POS will be suitable for businesses that need to work on-the-go i.e Mobile Coffee Shops.<br>It will be available at one of the following domains (Subject to change):<br>- api.vityea.us.kg [Beta/API]<br>- app.vityea.us.kg [All-in-one]<br>- cloud.vityea.us.kg [Cloud Service Management Tool]<br>- pos.vityea.us.kg [The full thing]<br>"
     }
 ]
