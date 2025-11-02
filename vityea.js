@@ -29,6 +29,14 @@ function shiftMode(){
     triggerSettingChange();
 }
 
+function resetMode(){
+    localStorage.removeItem("bgMode");
+    document.body.classList.remove('dark-mode');
+    document.body.classList.remove('light-mode');
+    showCustomAlert("Mode reset to Automatic. The website will now follow your system preference.");
+    triggerSettingChange();
+}
+
 function fetchNews(bypass) {
     if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '/Users/mac/Documents/GitHub/MunireachhVitye.github.io/index.html' || bypass === true) {
         //For some reason each browsers are high on crack so we added Math.random() and Date.now() to decache and to roast your internet connection.
@@ -108,4 +116,24 @@ function showAlert(){
 function closeCustomAlert() {
   document.getElementById('customAlert').style.display = 'none';
 
+}
+
+function usernameFind(){
+    var username = document.getElementById('usernameInput').value.trim();
+    var contextDiv = document.getElementById('context');
+    if(username === ""){
+        showCustomAlert("Please enter a username to lookup.");
+        return;
+    }
+    else {
+            fetch('email/'+username+'.json?'+Math.random()+'&timestamp='+Date.now())
+    .then(response => response.json())
+    .then(data => {
+        contextDiv.innerHTML = '<h3>Username Lookup Result:</h3><p>The username <b>'+username+'</b> is <span style="color: green; font-weight: bold;">valid</span> on <i>vityea.us.kg</i> domain.<br>Your email address is: <b>'+data.email+'</b><br>Created on: <b>'+data.created+'</b><br>Forwarded to: <b>'+data.forwarder+'</b></p>';
+    })
+    .catch(error => {
+        console.error('Error fetching user data:', error);
+        contextDiv.innerHTML = '<p>The username <b>'+username+'</b> does not exist on <i>vityea.us.kg</i> domain.<br>If you want to snatch a free email, now is the chance!<br>Sign up here: <a href="https://forms.vityea.us.kg/" class="black" target="_blank" rel="noopener">https://forms.vityea.us.kg</a><br>If you believe this is an error, please contact admin@vityea.us.kg or root@vityea.us.kg</p>';
+    });
+    }
 }
