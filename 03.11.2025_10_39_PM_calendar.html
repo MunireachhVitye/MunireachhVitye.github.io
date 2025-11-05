@@ -9,7 +9,7 @@
 <body class="light-mode">
 <h3>កាលវិភាគថ្នាក់ទី12A2 [Expanded]</h3>
 <noscript><h2>You have disabled JavaScript. So this will default to រដ្ឋ as ព្រឹក and បំប៉ន as ល្ងាច</h2></noscript>
-<a href="./03.11.2025_10_39_PM.html" class="black btn">Return?</a>
+<a href="./03.11.2025_10_39_PM.html" id="returnBTN" class="black btn border">Return?</a>&nbsp;&nbsp;&nbsp;<button id="printBTN" onclick="genPrint()" class="black btn border">Print</button>
     <style>
         body { /*font-family: Arial, sans-serif;*/ margin: 20px; }
         .excel-grid { border-collapse: collapse; margin: 15px 0; }
@@ -140,6 +140,17 @@
                 document.getElementById("row8").innerText = "10h - 11h";
             };
         })()
+        function genPrint(){
+            var btnExpand = document.getElementById("printBTN");
+            var returnBTN = document.getElementById("returnBTN");
+            btnExpand.style.display = "none";
+            returnBTN.style.display = "none";
+            window.print();
+            setTimeout(() => {
+                btnExpand.removeAttribute("style");
+                returnBTN.removeAttribute("style");
+            }, 1000)
+        }
     </script>
 <hr>
 <p>Designed by Vityea. Link: https://vityea.us.kg/03.11.2025_10_39_PM_calendar.html</p>
