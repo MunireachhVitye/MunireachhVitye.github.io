@@ -119,7 +119,8 @@ function closeCustomAlert() {
 }
 
 function usernameFind(){
-    var username = document.getElementById('usernameInput').value.trim();
+    var username = document.getElementById('usernameInput').value.trim().toLowerCase();
+    var userSplit = username.split('.');
     var contextDiv = document.getElementById('context');
     if(username === ""){
         showCustomAlert("Please enter a username to lookup.");
@@ -129,10 +130,17 @@ function usernameFind(){
             fetch('email/'+username+'.json?'+Math.random()+'&timestamp='+Date.now())
     .then(response => response.json())
     .then(data => {
+        if (userSplit[0] === "relay"){
+            contextDiv.innerHTML = '<h3>Username Lookup Result:</h3><p>The username <b>'+username+'</b> is a <span style="color: orange; font-weight: bold;">special relay</span> on <i>vityea.us.kg</i> domain.<br>Your email address is: <b>'+data.email+'</b><br>Created on: <b>'+data.created+'</b><br>Forwarded to: <b>'+data.forwarder+'</b></p>';
+            return;
+        }
         contextDiv.innerHTML = '<h3>Username Lookup Result:</h3><p>The username <b>'+username+'</b> is <span style="color: green; font-weight: bold;">valid</span> on <i>vityea.us.kg</i> domain.<br>Your email address is: <b>'+data.email+'</b><br>Created on: <b>'+data.created+'</b><br>Forwarded to: <b>'+data.forwarder+'</b></p>';
     })
     .catch(error => {
         console.error('Error fetching user data:', error);
+        if (userSplit[0] === "relay"){
+            contextDiv.innerHTML = '<p>The username <b>'+username+'</b> does not exist as a <span style="color: orange; font-weight: bold;">special relay</span> on <i>vityea.us.kg</i> domain.<br>If you want to create a special relay email, please contact admin@vityea.us.kg or root@vityea.us.kg</p>';
+        }
         contextDiv.innerHTML = '<p>The username <b>'+username+'</b> does not exist on <i>vityea.us.kg</i> domain.<br>If you want to snatch a free email, now is the chance!<br>Sign up here: <a href="https://forms.vityea.us.kg/" class="black" target="_blank" rel="noopener">https://forms.vityea.us.kg</a><br>If you believe this is an error, please contact admin@vityea.us.kg or root@vityea.us.kg</p>';
     });
     }
