@@ -93,8 +93,8 @@
     <h2>ចំណាំ៖ អ្នកនឹងសិក្សាម៉ោងរដ្ឋនៅពេល៖ <span id="scheduleDAY">ព្រឹក</span></h2>
     <div id="printSection">
     <h3 id="calendar">កាលវិភាគថ្នាក់ទី12A2</h3>
-    <p>គ្រុបTelegramសិស្ស: <a href="https://t.me/+ctEqSw3WwHw0MTQ1" target="_blank" rel="noopener" class="black">https://t.me/+ctEqSw3WwHw0MTQ1</a></p>
-    <p>Last updated. 11/11/2025 09:28 PM</p>
+    <!--<p>គ្រុបTelegramសិស្ស: <a href="https://t.me/+ctEqSw3WwHw0MTQ1" target="_blank" rel="noopener" class="black">https://t.me/+ctEqSw3WwHw0MTQ1</a></p>-->
+    <p>Last updated. 12/11/2025 06:10 AM</p>
     <a href="./03.11.2025_10_39_PM_calendar.html" id="hideExpandPrint" class="black btn border">Expand Spreadsheet&nbsp;<i class="fas fa-up-right-from-square"></i></a>
     <table class="calendar">
         <tr>
@@ -480,9 +480,12 @@
                 document.getElementById("row8").innerText = "10h - 11h";
             };
         })()
-        function tg(){
+        function tg(dct){
             //Does nothing for now.
-            showCustomAlert("មិនទាន់មានTelegram Groupទេ! សូមចូលទោគ្រុបTelegramសិស្ស។");
+            if (dct === "math") return window.open("https://t.me/+ctEqSw3WwHw0MTQ1", "_blank", "noopener");
+            if (dct === "bio") return window.open("https://t.me/+s8QgLn2mKUFkMzFl", "_blank", "noopener");
+            if (dct === "chemistry") return window.open("https://t.me/+RnDj6wA1G_9iZDhl", "_blank", "noopener");
+            else return showCustomAlert("មិនទាន់មានTelegram Groupទេ! សូមចូលទោគ្រុបTelegramសិស្ស។");
         }
         function genPrint(){
             var printWindow = window.open("", "_blank");
