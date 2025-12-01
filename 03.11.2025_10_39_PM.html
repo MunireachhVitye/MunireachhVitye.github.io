@@ -533,7 +533,7 @@
     <script>
         (()=>{
             //Check if the public class time should be morning or afternoon.
-            var schedule = new Date().getMonth()+1 / 2 % 1 !== 0 ? "Afternoon" : "Morning";
+            var schedule = (new Date().getMonth()+1) / 2 % 1 !== 0 ? "Afternoon" : "Morning";
             if (schedule === "Afternoon"){
                 document.getElementById("scheduleDAY").innerText = "ល្ងាច";
                 //Change the time slots to afternoon.

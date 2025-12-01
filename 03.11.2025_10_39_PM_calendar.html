@@ -130,7 +130,7 @@
             console.log("%cvityea.us.kg", "color: #2defc2; font-size: 20px; font-weight: bold;", "\nPowered by Vityea.\nFunded by the Vityea Personal Studies Goal Fund 2025.");
             console.log("Idk man, but if you're seeing this, you must be curious about how this website works. Feel free to explore the source code and learn more about web development! :)");
             //Check if the public class time should be morning or afternoon.
-            var schedule = new Date().getMonth()+1 / 2 % 1 !== 0 ? "Afternoon" : "Morning";
+            var schedule = (new Date().getMonth()+1) / 2 % 1 !== 0 ? "Afternoon" : "Morning";
             if (schedule === "Afternoon"){
                 //Change the time slots to afternoon.
                 document.getElementById("row1").innerText = "1h - 2h";
