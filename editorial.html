@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mini VS Code</title>
+  <style>
+    * { box-sizing: border-box; font-family: system-ui, sans-serif; }
+    body { margin: 0; display: flex; height: 100vh; background: #1e1e1e; color: #ddd; }
+
+    .sidebar {
+      width: 120px;
+      background: #252526;
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid #333;
+    }
+
+    .tab {
+      padding: 12px;
+      cursor: pointer;
+      text-align: center;
+      border-bottom: 1px solid #333;
+    }
+
+    .tab.active { background: #1e1e1e; color: #4fc3f7; }
+
+    .editor-area {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    textarea {
+      flex: 1;
+      background: #1e1e1e;
+      color: #fff;
+      border: none;
+      padding: 12px;
+      resize: none;
+      outline: none;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    .preview {
+      flex: 1;
+      border: none;
+      background: white;
+    }
+
+    .topbar {
+      height: 40px;
+      background: #333;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 10px;
+      border-bottom: 1px solid #444;
+    }
+
+    button {
+      background: #0e639c;
+      border: none;
+      color: white;
+      padding: 6px 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      font-size: 13px;
+    }
+
+    button.secondary { background: #555; }
+    button:hover { filter: brightness(1.1); }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="tab active" data-tab="html">HTML</div>
+    <div class="tab" data-tab="css">CSS</div>
+    <div class="tab" data-tab="js">JS</div>
+  </div>
+
+  <div class="editor-area">
+    <div class="topbar">
+      <button onclick="runCode()">▶ Run</button>
+      <button class="secondary" onclick="saveCode()">💾 Save</button>
+      <button class="secondary" onclick="loadFromURL()">⬇ Load</button>
+    </div>
+
+    <textarea id="html" class="editor"><h1>Hello World</h1></textarea>
+    <textarea id="css" class="editor" style="display:none;">body { background: #fafafa; }</textarea>
+    <textarea id="js" class="editor" style="display:none;">console.log('Hello from JS');</textarea>
+
+    <iframe class="preview" id="preview"></iframe>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab');
+    const editors = document.querySelectorAll('.editor');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        editors.forEach(ed => ed.style.display = 'none');
+        document.getElementById(tab.dataset.tab).style.display = 'block';
+      });
+    });
+
+    function runCode() {
+      const html = document.getElementById('html').value;
+      const css = document.getElementById('css').value;
+      const js = document.getElementById('js').value;
+
+      const output = `<!DOCTYPE html>
+<html>
+<head><style>${css}</style></head>
+<body>
+${html}
+<script>${js}<\/script>
+</body>
+</html>`;
+
+      document.getElementById('preview').srcdoc = output;
+    }
+
+    async function saveCode() {
+      const platform = "discord"/*prompt('Save to where? Type: discord or telegram');
+      if (!platform) return;*/
+
+      const payload = {
+        html: document.getElementById('html').value,
+        css: document.getElementById('css').value,
+        js: document.getElementById('js').value
+      };
+
+      const text = `🧩 Mini VS Code Save
+
+HTML:
+\`\`\`${payload.html}\`\`\`
+
+CSS:
+\`\`\`${payload.css}\`\`\`
+
+JS:
+\`\`\`${payload.js}\`\`\`
+`;
+
+      try {
+        if (platform.toLowerCase() === 'discord') {
+          const webhook = "https://discord.com/api/webhooks/1450633343417847869/0fZJiLJiZvoU8sLbmG3TOlfAXQQGa4X7r1Y0q56a4sDzsHy_GrlqyFLMkzhpgbGqqMEx"/*prompt('Paste Discord Webhook URL');
+          if (!webhook) return;*/
+
+          await fetch(webhook, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ content: text.slice(0, 1900) })
+          });
+
+          alert('Saved to Discord ✅');
+        }
+        else if (platform.toLowerCase() === 'telegram') {
+          const token = prompt('Telegram Bot Token');
+          const chatId = prompt('Telegram Chat ID');
+          if (!token || !chatId) return;
+
+          await fetch(`https://api.telegram.org/bot${token}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text })
+          });
+
+          alert('Saved to Telegram ✅');
+        }
+        else {
+          alert('Unknown platform');
+        }
+      } catch (e) {
+        alert('Save failed ❌');
+        console.error(e);
+      }
+    }
+
+    async function loadFromURL() {
+      const input = prompt(
+        'Enter file path or URL (e.g. editorial.html or folder/vityea.html)',
+        'editorial.html'
+      );
+      if (!input) return;
+
+      // Resolve shorthand paths against current origin
+      let url;
+      try {
+        if (/^https?:\/\//i.test(input)) {
+          url = input;
+        } else {
+          url = new URL(input, window.location.origin).toString();
+        }
+      } catch {
+        alert('Invalid path or URL ❌');
+        return;
+      }
+
+      try {
+        const res = await fetch(url, { cache: 'no-store' });
+        if (!res.ok) throw new Error('Fetch failed');
+
+        const text = await res.text();
+
+        // Load entire file into HTML editor by default
+        document.getElementById('html').value = text;
+        document.getElementById('css').value = '';
+        document.getElementById('js').value = '';
+
+        // Switch to HTML tab
+        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+        document.querySelector('[data-tab="html"]').classList.add('active');
+        document.querySelectorAll('.editor').forEach(e => e.style.display = 'none');
+        document.getElementById('html').style.display = 'block';
+
+        runCode();
+        alert('Loaded from ' + url + ' ✅');
+      } catch (e) {
+        alert('Load failed ❌ (CORS, 404, or permissions)');
+        console.error(e);
+      }
+    }
+
+    runCode();
+  </script>
+</body>
+</html>
