@@ -317,3 +317,13 @@ details[open] summary {
 .pointer{
   cursor: pointer;
 }
+
+/*
+  Added OCR-A Font
+*/
+@font-face {
+    font-family: 'OCR-A'; /* A name you choose to use later in your CSS */
+    src: url('ocr-a.ttf') format('truetype'); /* Path to your font file */
+    font-weight: normal; /* Optional: Define weight, style, etc. */
+    font-style: normal;
+}
