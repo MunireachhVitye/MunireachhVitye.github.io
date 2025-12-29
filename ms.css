@@ -327,3 +327,7 @@ details[open] summary {
     font-weight: normal; /* Optional: Define weight, style, etc. */
     font-style: normal;
 }
+
+.ocr-a {
+    font-family: 'OCR-A', monospace; /* Use the custom font */
+}
