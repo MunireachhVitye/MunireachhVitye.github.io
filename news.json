@@ -78,5 +78,12 @@
         "type": "news",
         "edited": false,
         "content": "Welcome back!<br>I've added <u>lookup.html</u> so basically you can lookup for any related email address to see if it's valid or not.<br>Just head over to the <a href=\"./lookup.html\" class=\"black btn\">Lookup Page</a> and enter the email address you want to check.<br>If the email isn't valid, well you can sign up for a new one at <a href=\"https://forms.vityea.us.kg/\" target=\"_blank\" rel=\"noopener\" class=\"black btn\">here</a>!<br>From: Vityea."
+    },
+    {
+        "name":"Nan Munireachh Vityea",
+        "date": "2025-12-31 06:13:50 +0700",
+        "type": "news",
+        "edited": false,
+        "content": "Happy New Year 2026 everyone!<br>Wishing you all the best in this new year ahead.<br>May this year bring you joy, success, and prosperity.<br>Cheers to a fantastic 2026!<br>From: Vityea."
     }
 ]

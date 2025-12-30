@@ -42,6 +42,55 @@
 </head>
 <body>
 <h1>Vityea Official Website</h1>
+<!--
+        This CSS style below is for New Year 2026.
+        Will be removed on 02 January 2026.
+-->
+<!-- The Container hides the text when it goes out of bounds -->
+<div class="marquee-container">
+  <div class="scrolling-greeting">
+    ✨ 🎊 Happy New Year 2026! 🎊 ✨
+  </div>
+</div>
+
+<style>
+.marquee-container {
+  width: 100%;
+  overflow: hidden; /* Ensures text doesn't spill over the page */
+  white-space: nowrap; /* Keeps greeting on one line */
+  background: #1a1a1a; /* Festive dark background */
+  padding: 15px 0;
+  border-top: 2px solid #ffd700;
+  border-bottom: 2px solid #ffd700;
+}
+
+.scrolling-greeting {
+  display: inline-block;
+  font-size: 2rem;
+  font-family: 'Arial', sans-serif;
+  color: #ffd700; /* Gold text */
+  font-weight: bold;
+  animation: moveLeftToRight 10s linear infinite; /* Loops forever */
+}
+
+/* Keyframes for Left to Right movement */
+@keyframes moveLeftToRight {
+  from {
+    transform: translateX(-100%); /* Start completely off-screen to the left */
+  }
+  to {
+    transform: translateX(100vw); /* End completely off-screen to the right */
+  }
+}
+
+/* Pause the greeting when a user hovers over it for better accessibility */
+.marquee-container:hover .scrolling-greeting {
+  animation-play-state: paused;
+}
+</style>
+<!--
+        End of New Year 2026 CSS style.
+-->
 <legend><p>News Updates:</p></legend>
 <fieldset>
 <div id="newsUpdates">
