@@ -13,6 +13,7 @@
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchNews();
+    systemNews();
     if (localStorage.getItem("bgMode") === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('dark-mode');
     }
@@ -107,6 +108,17 @@ if (document.getElementById('customAlert')) {
     var alertDiv = document.createElement('div');
     alertDiv.innerHTML = alertHTML;
     document.body.appendChild(alertDiv);
+}
+
+function systemNews(){
+    const today = new Date();
+//Will trigger on 09 Feb. every year, the birthday of Vityea. We will post news about Vityea and maybe some giveaways if we are feeling generous.
+if (today.getMonth() === 1 && today.getDate() === 9) {
+    console.log("09 Feb. Triggering Vityea birthday news.");
+    showCustomAlert("Today is Vityea's Birthday.\nPlease say Happy Birthday.")
+} else {
+    console.log("Cya next year!");
+}
 }
 
 function showAlert(){
