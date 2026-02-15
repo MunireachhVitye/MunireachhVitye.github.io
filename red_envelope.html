@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Envelope Gacha</title>
+    <style>
+        :root {
+            --red: #d32f2f;
+            --gold: #ffd700;
+            --dark-red: #8b0000;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fdf2f2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 { color: var(--dark-red); margin-bottom: 10px; }
+
+        /* The Envelope Container */
+        .game-container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        #envelope {
+            width: 160px;
+            height: 220px;
+            background-color: var(--red);
+            border-radius: 12px;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 4px solid var(--gold);
+            box-shadow: 0 8px 0 var(--dark-red);
+        }
+
+        #envelope:active {
+            transform: translateY(4px);
+            box-shadow: 0 4px 0 var(--dark-red);
+        }
+
+        #envelope .symbol {
+            font-size: 60px;
+            margin-bottom: 10px;
+        }
+
+        #envelope .label {
+            color: var(--gold);
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        /* Result Animation */
+        #result-display {
+            height: 40px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark-red);
+            margin-top: 20px;
+        }
+
+        /* Shake Animation */
+        .shake {
+            animation: shakeAnim 0.4s ease-in-out;
+        }
+
+        @keyframes shakeAnim {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px) rotate(-5deg); }
+            75% { transform: translateX(10px) rotate(5deg); }
+        }
+
+        /* History Table */
+        .history-section {
+            margin-top: 30px;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        th { background: var(--red); color: white; }
+
+        .jackpot { color: #2e7d32; font-weight: bold; }
+    </style>
+</head>
+<body>
+<br>
+<br>
+    <h1>Ang Pao Lucky Pull</h1>
+    <center><a href="./" style="color: blue;">Exit?</a></center><br>
+    <div class="game-container">
+        <div id="envelope" onclick="pull()">
+            <div class="symbol">🧧</div>
+            <div class="label">Open Me</div>
+        </div>
+        <div id="result-display">Click the envelope!</div>
+    </div>
+
+    <div class="history-section">
+        <h3>Recent Pulls</h3>
+        <table id="history-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Prize</th>
+                </tr>
+            </thead>
+            <tbody id="history-body">
+                </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Your specific percentage distribution
+        const prizePool = [
+            { label: "500 ៛", weight: 60 },
+            { label: "1,000 ៛", weight: 20 },
+            { label: "2,000 ៛", weight: 10 },
+            { label: "1.00 $", weight: 9 },
+            { label: "3.00 $", weight: 1 }
+        ];
+
+        let pullCount = 0;
+
+        function pull() {
+            const envelope = document.getElementById('envelope');
+            const resultText = document.getElementById('result-display');
+            
+            // Prevent spam clicking during animation
+            if (envelope.classList.contains('shake')) return;
+
+            // Trigger Animation
+            envelope.classList.add('shake');
+            resultText.innerText = "Opening...";
+
+            setTimeout(() => {
+                const winner = calculateWinner();
+                displayResult(winner);
+                envelope.classList.remove('shake');
+            }, 500);
+        }
+
+        function calculateWinner() {
+            const totalWeight = prizePool.reduce((acc, p) => acc + p.weight, 0);
+            let random = Math.random() * totalWeight;
+
+            for (const prize of prizePool) {
+                if (random < prize.weight) {
+                    return prize;
+                }
+                random -= prize.weight;
+            }
+        }
+
+        function displayResult(prize) {
+            const resultText = document.getElementById('result-display');
+            resultText.innerText = `You won ${prize.label}!`;
+
+            // Add to table
+            pullCount++;
+            const tbody = document.getElementById('history-body');
+            const row = tbody.insertRow(0); // Add to top
+            
+            const cell1 = row.insertCell(0);
+            const cell2 = row.insertCell(1);
+            
+            cell1.innerText = pullCount;
+            cell2.innerText = prize.label;
+
+            // Highlight the $3.00 pull
+            if (prize.label === "3.00 $") {
+                cell2.classList.add('jackpot');
+                // Optional: Alert for big wins
+                setTimeout(() => alert("JACKPOT! You got the $3 prize!"), 100);
+            }
+        }
+    </script>
+</body>
+</html>

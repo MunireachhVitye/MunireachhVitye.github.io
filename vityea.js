@@ -14,6 +14,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchNews();
     systemNews();
+    //BacII is coming, we need a timer for that.
+    const systemNewsDiv = document.getElementById('systemNews');
+    if (!systemNewsDiv) return;
+    systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><br><div id="timer"></div>';
+    injectTimer();
+    //End of War
     if (localStorage.getItem("bgMode") === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('dark-mode');
     }
@@ -112,10 +118,24 @@ if (document.getElementById('customAlert')) {
 
 function systemNews(){
     const today = new Date();
+    if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) {
+        console.log("System news already read for today.");
+    }
 //Will trigger on 09 Feb. every year, the birthday of Vityea. We will post news about Vityea and maybe some giveaways if we are feeling generous.
 if (today.getMonth() === 1 && today.getDate() === 9) {
     console.log("09 Feb. Triggering Vityea birthday news.");
+    sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Today is Vityea's Birthday.\nPlease say Happy Birthday.")
+}
+else if (today.getMonth() === 1 && today.getDate() === 16 || 17 || 18 || 19) {
+    console.log("16-19 Feb of 2025. Triggering Chinese New Year news.");
+    sessionStorage.setItem("readSystemNews", new Date().toDateString());
+    showCustomAlert("Happy Chinese New Year 2025!\nWishing you a prosperous year ahead filled with joy and success.");
+}
+else if (today.getMonth() === 7 && today.getDate() === 28 || 29){
+    console.log("28-29 Aug. Triggering Oh shit it's Bacii exams")
+    sessionStorage.setItem("readSystemNews", new Date().toDateString());
+    showCustomAlert("Men. Get ready for war. BacII is here.")
 } else {
     console.log("Cya next year!");
 }
@@ -156,4 +176,23 @@ function usernameFind(){
         contextDiv.innerHTML = '<p>The username <b>'+username+'</b> does not exist on <i>vityea.us.kg</i> domain.<br>If you want to snatch a free email, now is the chance!<br>Sign up here: <a href="https://forms.vityea.us.kg/" class="black" target="_blank" rel="noopener">https://forms.vityea.us.kg</a><br>If you believe this is an error, please contact admin@vityea.us.kg or root@vityea.us.kg</p>';
     });
     }
+}
+
+function injectTimer(){
+    const timerDiv = document.getElementById('timer');
+    if (!timerDiv) return;
+    const targetDate = new Date('2026-08-28T07:00:00');
+    const now = new Date();
+    const diff = targetDate - now;
+    if (diff <= 0) {
+        timerDiv.innerHTML = '<p>Men. Get Ready for War.</p>';
+        return;
+    
+    }
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+    const minutes = Math.floor((diff / (1000 * 60)) % 60);
+    const seconds = Math.floor((diff / 1000) % 60);
+    timerDiv.innerHTML = `<p>Countdown to BacII: ${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
+    setTimeout(injectTimer, 1000);
 }
