@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //BacII is coming, we need a timer for that.
     const systemNewsDiv = document.getElementById('systemNews');
     if (!systemNewsDiv) return;
-    systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><br><div id="timer"></div>';
+    systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><div id="timer"></div>';
     injectTimer();
     //End of War
     if (localStorage.getItem("bgMode") === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem("bgMode")) {
@@ -118,21 +118,21 @@ if (document.getElementById('customAlert')) {
 
 function systemNews(){
     const today = new Date();
-    if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) {
-        return console.log("System news already read for today.");
-    }
 //Will trigger on 09 Feb. every year, the birthday of Vityea. We will post news about Vityea and maybe some giveaways if we are feeling generous.
 if (today.getMonth() === 1 && today.getDate() === 9) {
+    if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("09 Feb. Triggering Vityea birthday news.");
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Today is Vityea's Birthday.\nPlease say Happy Birthday.")
 }
 else if (today.getMonth() === 1 && today.getDate() === 16 || 17 || 18 || 19) {
+    if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("16-19 Feb of 2025. Triggering Chinese New Year news.");
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Happy Chinese New Year 2025!\nWishing you a prosperous year ahead filled with joy and success.");
 }
 else if (today.getMonth() === 7 && today.getDate() === 28 || 29){
+    if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("28-29 Aug. Triggering Oh shit it's Bacii exams")
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Men. Get ready for war. BacII is here.")
@@ -185,7 +185,7 @@ function injectTimer(){
     const now = new Date();
     const diff = targetDate - now;
     if (diff <= 0) {
-        timerDiv.innerHTML = '<p>Men. Get Ready for War.</p>';
+        timerDiv.innerHTML = '<center><h1>Men. Get Ready for War.</h2></center>';
         return;
     
     }
@@ -193,6 +193,6 @@ function injectTimer(){
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
-    timerDiv.innerHTML = `<p>Countdown to BacII: ${days}d ${hours}h ${minutes}m ${seconds}s</p>`;
+    timerDiv.innerHTML = `<center><h2 style="color: red">Countdown to BacII: ${days}d ${hours}h ${minutes}m ${seconds}s</h2></center>`;
     setTimeout(injectTimer, 1000);
 }
