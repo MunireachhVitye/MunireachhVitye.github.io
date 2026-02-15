@@ -119,7 +119,7 @@ if (document.getElementById('customAlert')) {
 function systemNews(){
     const today = new Date();
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) {
-        console.log("System news already read for today.");
+        return console.log("System news already read for today.");
     }
 //Will trigger on 09 Feb. every year, the birthday of Vityea. We will post news about Vityea and maybe some giveaways if we are feeling generous.
 if (today.getMonth() === 1 && today.getDate() === 9) {
