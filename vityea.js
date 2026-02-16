@@ -131,7 +131,7 @@ else if (today.getMonth() === 1 && today.getDate() === 16 || 17 || 18 || 19) {
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Happy Chinese New Year 2025!\nWishing you a prosperous year ahead filled with joy and success.");
 }
-else if (today.getMonth() === 7 && today.getDate() === 28 || 29){
+else if (today.getMonth() === 7 && today.getDate() === 10 || 11){
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("28-29 Aug. Triggering Oh shit it's Bacii exams")
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
@@ -181,7 +181,7 @@ function usernameFind(){
 function injectTimer(){
     const timerDiv = document.getElementById('timer');
     if (!timerDiv) return;
-    const targetDate = new Date('2026-08-28T07:00:00');
+    const targetDate = new Date('2026-08-10T07:00:00');
     const now = new Date();
     const diff = targetDate - now;
     if (diff <= 0) {
