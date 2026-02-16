@@ -11,7 +11,7 @@
     console["log"]("Designed & Coded by Vityea.")
 })
 
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded',*/ window.onload( () => {
     fetchNews();
     systemNews();
     //BacII is coming, we need a timer for that.
