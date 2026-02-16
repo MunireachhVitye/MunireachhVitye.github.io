@@ -38,44 +38,7 @@
     <link rel="manifest" id="manifest" href="site.webmanifest">
     <link href="ms.css" rel="stylesheet" type="text/css" />
     <script src="font_awesome.all.js"></script>
-    <!--<script src="vityea.js" sponsor="MDA Organization"></script>-->
-    <script>
-    (async function() {
-        const scriptUrl = 'vityea.js';
-        const cacheBusterUrl = `${scriptUrl}?v=${Date.now()}`;
-
-        async function getHash(url) {
-            try {
-                const response = await fetch(url);
-                const text = await response.text();
-                // Simple hash function to compare content
-                let hash = 0;
-                for (let i = 0; i < text.length; i++) {
-                    hash = ((hash << 5) - hash) + text.charCodeAt(i);
-                    hash |= 0; 
-                }
-                return hash;
-            } catch (e) {
-                return null;
-            }
-        }
-
-        const cachedHash = await getHash(scriptUrl);
-        const liveHash = await getHash(cacheBusterUrl);
-
-        const finalSrc = (cachedHash !== liveHash) ? cacheBusterUrl : scriptUrl;
-        
-        const script = document.createElement('script');
-        script.src = finalSrc;
-        script.setAttribute('sponsor', 'MDA Organization');
-        script.async = false; // Ensure it loads in order
-        document.head.appendChild(script);
-        
-        if (cachedHash !== liveHash) {
-            console.log("🚀 Vityea.js update detected. Loading fresh version.");
-        }
-    })();
-</script>
+    <script src="vityea.js" nonce="sha256-j46cU5NNNFJByL6TzqMuJSWe71lGncQpWHyllhTzyAc=" sponsor="MDA Organization"></script>
 </head>
 <body>
 <h1>Vityea Official Website</h1>
@@ -110,7 +73,7 @@
 </ul>
 <hr>
 <p>Files hosted on Github and served via Cloudflare.</p>
-<p>This page was last updated at: 09:57 AM Cambodian Time on Monday, 16 February 2026</p>
+<p>This page was last updated at: 10:03 AM Cambodian Time on Monday, 16 February 2026</p>
 </body>
 
 </html>
