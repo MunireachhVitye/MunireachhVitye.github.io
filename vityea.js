@@ -26,7 +26,7 @@
     if (localStorage.getItem("bgMode") === "light" || window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('light-mode');
     }
-})
+}
 
 function shiftMode(){
     document.body.classList.toggle('dark-mode');
