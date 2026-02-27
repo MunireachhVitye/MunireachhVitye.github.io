@@ -60,7 +60,7 @@ function fetchNews(bypass) {
         });*/
         const newsItem = document.createElement('p');
         const item = data[data.length - 1];
-        const nameList = ["nan munireachh vityea", "munireachh vityea", "nan vityea", "vityea", "nmv", "admin", "administrator", "owner", "ណន មុនីរាជវិទ្យា", "មុនីរាជវិទ្យា", "ណន វិទ្យា", "វិទ្យា"];
+        const nameList = ["nan munireachh vityea", "munireachh vityea", "nan vityea", "vityea", "nmv", "admin", "administrator", "owner", "ណន មុនីរាជវិទ្យា", "មុនីរាជវិទ្យា", "ណន វិទ្យា", "វិទ្យា", "nigga", "nig", "nigger"];
         function nameProtocol(){
             if (nameList.includes(item.name.toLowerCase())) return "Author: <b>Owner</b>";
             else return "Author: <b>"+item.name+"</b>";
@@ -95,6 +95,8 @@ function typeContent(type){
     if (type === "info") return "Information";
     //Events to partake
     if (type === "event") return "Event";
+    //Game
+    if (type === "game") return "Game";
     //General stuff
     return "General";
 }
@@ -125,13 +127,13 @@ if (today.getMonth() === 1 && today.getDate() === 9) {
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Today is Vityea's Birthday.\nPlease say Happy Birthday.")
 }
-else if (today.getMonth() === 1 && today.getDate() === 16 || 17 || 18 || 19) {
+/*else if (today.getMonth() === 1 && today.getDate() === 16 || 17 || 18 || 19) {
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("16-19 Feb of 2025. Triggering Chinese New Year news.");
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Happy Chinese New Year 2025!\nWishing you a prosperous year ahead filled with joy and success.");
-}
-else if (today.getMonth() === 7 && today.getDate() === 10 || 11){
+}*/
+else if (today.getMonth() === 7 && today.getDate() === 10 || today.getMonth() === 7 && today.getDate() === 11){
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("28-29 Aug. Triggering Oh shit it's Bacii exams")
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
