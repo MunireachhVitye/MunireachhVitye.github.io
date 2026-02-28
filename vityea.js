@@ -128,6 +128,7 @@ if (today.getMonth() === 1 && today.getDate() === 9) {
     showCustomAlert("Today is Vityea's Birthday.\nPlease say Happy Birthday.")
 }
 /*else if (today.getMonth() === 1 && today.getDate() === 16 || 17 || 18 || 19) {
+//chatgpt recommend fix: today.getMonth() === 1 && [16,17,18,19].includes(today.getDate())
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("16-19 Feb of 2025. Triggering Chinese New Year news.");
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
