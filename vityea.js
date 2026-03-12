@@ -12,6 +12,9 @@
 })
 
 document.addEventListener('DOMContentLoaded', () => {
+    //Highest priority to prevent bricking
+    bgShiftAuto();
+    //End of priority
     fetchNews();
     systemNews();
     //BacII is coming, we need a timer for that.
@@ -20,13 +23,16 @@ document.addEventListener('DOMContentLoaded', () => {
     systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><div id="timer"></div>';
     injectTimer();
     //End of War
+})
+
+function bgShiftAuto(){
     if (localStorage.getItem("bgMode") === "dark" || window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('dark-mode');
     }
     if (localStorage.getItem("bgMode") === "light" || window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches && !localStorage.getItem("bgMode")) {
             document.body.classList.add('light-mode');
     }
-})
+}
 
 function shiftMode(){
     document.body.classList.toggle('dark-mode');
