@@ -140,7 +140,7 @@ if (today.getMonth() === 1 && today.getDate() === 9) {
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Happy Chinese New Year 2025!\nWishing you a prosperous year ahead filled with joy and success.");
 }*/
-else if (today.getMonth() === 4 && today.getDate() === 14 || today.getMonth() === 4 && today.getDate() === 15 || today.getMonth() === 4 && today.getDate() === 16){
+else if (today.getMonth() === 3 && today.getDate() === 14 || today.getMonth() === 3 && today.getDate() === 15 || today.getMonth() === 3 && today.getDate() === 16){
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("14-15-16 Apr. Triggering Khmer New Year news.");
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
