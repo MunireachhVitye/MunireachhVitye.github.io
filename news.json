@@ -137,5 +137,12 @@
         "type": "info",
         "edited": false,
         "content": "Currently, there's no updates or any new announcements so this will be the default placeholder.<br>Should there be a problem, you submit a form via this link: <a href=\"./contact.html\" class=\"black btn\">Contact</a> to ask Vityea directly or report via the <a href=\"https://forms.vityea.us.kg/\" class=\"black btn\">https://forms.vityea.us.kg/</a><br><br>Issued announcement from: Vityea Website Mitigations Officer."
+    },
+    {
+        "name": "Nan Munireachh Vityea",
+        "date": "2026-04-14 08:04:00 +0700",
+        "type": "info",
+        "edited": false,
+        "content": "Happy Khmer New Year to all of you!<br>For a limited time, you can view the TVK Livestream on the homepage.<br>Click here to watch: <a href=\"./tvk_stream.html\" class=\"black btn\" target=\"_blank\" rel=\"noopener\">TVK Livestream</a><br>From: Vityea."
     }
 ]

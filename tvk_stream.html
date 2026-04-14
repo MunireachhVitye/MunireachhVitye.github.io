@@ -1,18 +1,19 @@
+<!--https://live.kh.malimarcdn.com/live/tvk.stream/playlist.m3u8-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
-	<title>BacII Timer</title>
+	<title>TVK Livestream</title>
     <meta name="description" content="Powered by vityea.us.kg" />
     <meta name="language" content="English" />
     <base href="./">
     <meta name="description" content="Powered by vityea.us.kg">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no,viewport-fit=cover">
     <meta name="mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-title" content="BacII Timer">
+    <meta name="mobile-web-app-title" content="TVK Livestream">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="BacII Timer">
-    <meta name="application-name" content="BacII Timer">
+    <meta name="apple-mobile-web-app-title" content="TVK Livestream">
+    <meta name="application-name" content="TVK Livestream">
     <meta name="msapplication-TileColor" content="#2defc2">
     <meta name="msapplication-TileImage" content="144x144.png">
     <meta name="msapplication-config" content="browserconfig.xml">
@@ -20,13 +21,13 @@
     <meta name="color-scheme" content="light">
     <meta name="google" content="notranslate">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vityea.us.kg/timer">
-    <meta property="og:title" content="BacII Timer">
+    <meta property="og:url" content="https://vityea.us.kg/tvk_stream">
+    <meta property="og:title" content="TVK Livestream">
     <meta property="og:description" content="Powered by vityea.us.kg">
     <meta property="og:image" content="192x192.png">
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://vityea.us.kg/timer">
-    <meta property="twitter:title" content="BacII Timer">
+    <meta property="twitter:url" content="https://vityea.us.kg/tvk_stream">
+    <meta property="twitter:title" content="TVK Livestream">
     <meta property="twitter:description" content="Powered by vityea.us.kg">
     <meta property="twitter:image" content="192x192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -34,23 +35,31 @@
     <link rel="icon" type="image/png" sizes="32x32" href="32x32.png">
     <link rel="icon" type="image/png" sizes="192x192" href="192x192.png">
     <link rel="alternate icon" href="favicon.ico" type="image/x-icon">
-    <link rel="canonical" href="https://vityea.us.kg/timer">
+    <link rel="canonical" href="https://vityea.us.kg/tvk_stream">
     <link rel="manifest" id="manifest" href="site.webmanifest">
     <link href="ms.css" rel="stylesheet" type="text/css" />
     <script src="font_awesome.all.js"></script>
-    <script src="./vityea.js" nonce="sha256-j46cU5NNNFJByL6TzqMuJSWe71lGncQpWHyllhTzyAc=" author="Nan Munireachh Vityea"></script>
+    <script src="./vityea.js" nonce="sha256-j46cU5NNNFJByL6TzqMuJSWe71lGncQpWHyllhTzyAc=" author="Nan Munireachh Vityea" webhash="TVK_STREAM"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 </head>
 <body class="light-mode">
-<center>
-<h1>BacII Timer 2026 - ១០ សីហា ២០២៦</h1>
-<br>
-<div id="timer" style="color: red;"></div>
-<br>
-<br>
-<b>Powered by: vityea.us.kg (Nan Munireachh Vityea)</b>
-</center>
+<h1>TVK Livestream</h1>
+<a href="" class="black btn">Main Menu</a>
+<hr>
+<p>Powered by: vityea.us.kg (Nan Munireachh Vityea)</p>
+<p>Click the play button to watch the livestream.</p>
+<video id="tvk" preload="auto" playsinline="playsinline" muted controls autoplay style="width: 100%; max-width: 800px;"></video>
 <script>
-    document.addEventListener('DOMContentLoaded', injectTimer);
+  var video = document.getElementById('tvk');
+  var stream = 'https://live.kh.malimarcdn.com/live/tvk.stream/playlist.m3u8';
+  
+  if(Hls.isSupported()) {
+    var hls = new Hls();
+    hls.loadSource(stream);
+    hls.attachMedia(video);
+  } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = stream;
+  }
 </script>
 </body>
 </html>
