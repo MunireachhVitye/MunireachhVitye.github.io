@@ -32,6 +32,19 @@
         .crossout {
             text-decoration: line-through;
         }
+        /* Make photos responsive: 50% of the table cell width, preserve aspect ratio */
+        .excel-grid td img {
+            width: 50%;
+            max-width: 100%;
+            height: auto; /* preserve aspect ratio */
+            display: block; /* better centering behavior */
+            margin: 0 auto; /* center in the cell */
+        }
+        .ale-center {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
     </style>
 <table class="excel-grid">
         <tr>
@@ -42,27 +55,27 @@
         <tr>
             <td><img src="https://verify.vityea.us.kg/assets/1bacc7060a7cdfec2330e5b6bbc7b9a7/20260422_145729.jpg" alt="Student's Photo"></td>
             <td>លាង នីកា</td>
-            <td>១</td>
+            <td class="ale-center">១</td>
         </tr>
         <tr>
             <td><img src="https://verify.vityea.us.kg/assets/1bacc7060a7cdfec2330e5b6bbc7b9a7/20260422_145732.jpg" alt="Student's Photo"></td>
             <td>សឿន ពីសី</td>
-            <td>២</td>
+            <td class="ale-center">២</td>
         </tr>
         <tr>
             <td><img src="https://verify.vityea.us.kg/assets/1bacc7060a7cdfec2330e5b6bbc7b9a7/20260422_145726.jpg" alt="Student's Photo"></td>
             <td>ស វីរៈបញ្ញា</td>
-            <td>៣</td>
+            <td class="ale-center">៣</td>
         </tr>
         <tr>
             <td><img src="https://verify.vityea.us.kg/assets/1bacc7060a7cdfec2330e5b6bbc7b9a7/20260422_145723.jpg" alt="Student's Photo"></td>
             <td>កុល សុធារ៉ា</td>
-            <td>៤</td>
+            <td class="ale-center">៤</td>
         </tr>
         <tr>
             <td><img src="https://verify.vityea.us.kg/assets/1bacc7060a7cdfec2330e5b6bbc7b9a7/20260422_145700.jpg" alt="Student's Photo"></td>
             <td>មឿន ស៊ីវហ្វា</td>
-            <td>៥</td>
+            <td class="ale-center">៥</td>
         </tr>
         <tr>
             <th colspan="3" style="text-align: center;">ឯកសារនេះត្រូវបានVerifiedជាមួយ <a href="https://verify.vityea.us.kg/hash/1bacc7060a7cdfec2330e5b6bbc7b9a7" class="black">Verify by vityea.us.kg | Hash: 1bacc7060a7cdfec2330e5b6bbc7b9a7</a></th>
