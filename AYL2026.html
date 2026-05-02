@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Asia Youth Leaders 2026 — Nan Munireachh Vityea</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QNKKZP8C4R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QNKKZP8C4R', {
+      page_title: 'AYL2026 Video',
+      page_location: window.location.href
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #080a0f;
+      --surface: #0e1117;
+      --border: #1c2030;
+      --accent: #4f8ef7;
+      --accent2: #7c3aed;
+      --text: #e8eaf0;
+      --muted: #6b7280;
+      --mono: 'DM Mono', monospace;
+      --sans: 'Syne', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(79,142,247,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(79,142,247,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 48px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .logo {
+      font-size: 13px;
+      font-family: var(--mono);
+      color: var(--muted);
+      letter-spacing: 0.08em;
+    }
+
+    .logo span {
+      color: var(--accent);
+    }
+
+    .badge {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      border: 1px solid rgba(79,142,247,0.3);
+      padding: 4px 10px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      background: rgba(79,142,247,0.05);
+    }
+
+    /* Title block */
+    .title-block {
+      margin-bottom: 40px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.1s forwards;
+    }
+
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1 {
+      font-size: clamp(28px, 5vw, 44px);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #e8eaf0 30%, #4f8ef7);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .subtitle strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    /* Video container */
+    .video-wrap {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.2s forwards;
+      box-shadow: 0 0 0 1px rgba(79,142,247,0.1), 0 24px 64px rgba(0,0,0,0.6);
+    }
+
+    .video-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(79,142,247,0.08), rgba(124,58,237,0.04));
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .video-wrap:hover::before { opacity: 1; }
+
+    video {
+      width: 100%;
+      display: block;
+      max-height: 480px;
+      object-fit: contain;
+      background: #000;
+    }
+
+    /* Progress bar overlay */
+    .progress-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      width: 0%;
+      transition: width 0.5s linear;
+      z-index: 2;
+    }
+
+    /* Info grid */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-bottom: 32px;
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.3s forwards;
+    }
+
+    .info-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      transition: border-color 0.2s;
+    }
+
+    .info-card:hover { border-color: rgba(79,142,247,0.3); }
+
+    .info-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .info-value {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* Footer */
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      opacity: 0;
+      animation: fadeUp 0.6s ease 0.4s forwards;
+    }
+
+    .powered {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .powered a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .powered a:hover { text-decoration: underline; }
+
+    .watch-status {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .status-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--muted);
+      transition: background 0.3s;
+    }
+
+    .status-dot.active { background: #22c55e; box-shadow: 0 0 6px #22c55e; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 24px 16px 60px; }
+      .header { margin-bottom: 32px; }
+      h1 { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="header">
+    <div class="logo">vityea<span>.us.kg</span></div>
+    <div class="badge">AYL 2026 · Submission</div>
+  </header>
+
+  <div class="title-block">
+    <div class="eyebrow">Motivation Video</div>
+    <h1>Asia Youth Leaders<br/>2026</h1>
+    <p class="subtitle">
+      Submitted by <strong>Nan Munireachh Vityea</strong> &nbsp;·&nbsp;
+      Indradevy High School, Phnom Penh &nbsp;·&nbsp;
+      <strong>Cambodia</strong>
+    </p>
+  </div>
+
+  <div class="video-wrap" id="videoWrap">
+    <video
+      id="vid"
+      controls
+      preload="metadata"
+      playsinline
+    >
+      <!-- REPLACE with actual video URL on cloud.vityea.us.kg -->
+      <source src="https://cloud.vityea.us.kg/AYL2026.mp4" type="video/mp4" />
+      <track src="http://cof.vityea.us.kg/assets/vid/vtt/20260502_095615_1.vtt" kind="subtitles" srclang="en" label="English" default />
+      Your browser does not support the video tag.
+    </video>
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-label">Program</div>
+      <div class="info-value">Asia Youth Leaders 2026</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Destination</div>
+      <div class="info-value">Okinawa · Tokyo, Japan</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Dates</div>
+      <div class="info-value">July 26 – Aug 1, 2026</div>
+    </div>
+    <div class="info-card">
+      <div class="info-label">Organizer</div>
+      <div class="info-value">AEON 1% Club · GDY · MoEYS</div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="powered">
+      Powered by <a href="https://vityea.us.kg?utm_source=ayl2026_video" target="_blank">vityea.us.kg</a>
+    </div>
+    <div class="watch-status">
+      <div class="status-dot" id="statusDot"></div>
+      <span id="statusText">Loading...</span>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const API = 'https://api-cf.vityea.us.kg/aylvideo/log';
+  const vid = document.getElementById('vid');
+  const bar = document.getElementById('progressBar');
+  const dot = document.getElementById('statusDot');
+  const txt = document.getElementById('statusText');
+
+  async function log(event, extra = {}) {
+    try {
+      await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ event, ...extra })
+      });
+    } catch {}
+  }
+
+  // Log pageload immediately
+  log('pageload');
+  txt.textContent = 'Ready';
+
+  // Track play
+  vid.addEventListener('play', () => {
+    dot.classList.add('active');
+    txt.textContent = 'Playing';
+    gtag('event', 'video_play', { event_category: 'AYL2026' });
+  });
+
+  // Track pause
+  vid.addEventListener('pause', () => {
+    dot.classList.remove('active');
+    txt.textContent = 'Paused';
+  });
+
+  // Update progress bar + log every 30s
+  let lastLoggedAt = 0;
+  vid.addEventListener('timeupdate', () => {
+    if (!vid.duration) return;
+    const pct = (vid.currentTime / vid.duration) * 100;
+    bar.style.width = pct + '%';
+
+    const secs = Math.floor(vid.currentTime);
+    if (secs > 0 && secs % 30 === 0 && secs !== lastLoggedAt) {
+      lastLoggedAt = secs;
+      log('watching', { watched_seconds: secs });
+      gtag('event', 'video_progress', {
+        event_category: 'AYL2026',
+        value: secs
+      });
+    }
+  });
+
+  // Log video ended
+  vid.addEventListener('ended', () => {
+    dot.classList.remove('active');
+    txt.textContent = 'Watched ✓';
+    log('ended', { watched_seconds: Math.floor(vid.duration) });
+    gtag('event', 'video_complete', { event_category: 'AYL2026' });
+    bar.style.width = '100%';
+  });
+
+  // Error handling
+  vid.addEventListener('error', () => {
+    txt.textContent = 'Error loading video';
+    dot.style.background = '#ef4444';
+  });
+
+  vid.addEventListener('canplay', () => {
+    if (txt.textContent === 'Loading...') txt.textContent = 'Ready';
+  });
+</script>
+</body>
+</html>
