@@ -95,6 +95,39 @@ function fetchNews(bypass) {
             if (item.editContent) return item.editContent;
             else return "";
         }
+        if (data.length-1 === 20 && item.type === "info"){
+            // 1. Define your curated playlist of Spotify Track IDs
+// (You grab these from the "Share -> Copy Link" button on Spotify)
+const spotifyPlaylist = [
+    "0vAZAAtJptSeLLP4NUXNY4", // Beat It - Michael Jackson
+    "3a0EbPwMiu3lznnjCiQ0OI", // Decade of Love - Norith
+    "3O7GKtpgTQnv5SfxGhJhI0"  // Sora - YuuHai
+];
+
+// 2. Pick a random track from the array
+const randomTrackId = spotifyPlaylist[Math.floor(Math.random() * spotifyPlaylist.length)];
+
+// 3. Update your innerHTML assignment inside the fetchNews promise:
+newsItem.innerHTML = `
+    Date: ${parseIOSDate(item.date)}<br>
+    ${nameProtocol()}${editedContent()}<br>
+    Type: ${typeContent(item.type)}<br>
+    I have 0 things to display.<br>
+    So here's a random track from my playlist:<br>
+    <iframe data-testid="embed-iframe" 
+            style="border-radius:12px" 
+            src="https://open.spotify.com/embed/track/${randomTrackId}?utm_source=generator" 
+            width="50%" 
+            height="152" 
+            frameBorder="0" 
+            allowfullscreen="" 
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+            loading="lazy">
+    </iframe><br><br>
+    From: Vityea.
+`;
+return newsUpdatesDiv.appendChild(newsItem);
+        }
         newsItem.innerHTML = `Date: ${parseIOSDate(item.date)}<br>${nameProtocol()}${editedContent()}<br>Type: ${typeContent(item.type)}<br>${item.content}<br>${checkedit()}`;
         newsUpdatesDiv.appendChild(newsItem);
     })
