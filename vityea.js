@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     //BacII is coming, we need a timer for that.
     const systemNewsDiv = document.getElementById('systemNews');
     if (!systemNewsDiv) return;
-    systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><div id="timer"></div>';
+    systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><br><a href="timer.html" class="blue">Expand Timer</a><br><div id="timer"></div>';
     injectTimer();
     //End of War
 })
@@ -49,6 +49,22 @@ function resetMode(){
     showCustomAlert("Mode reset to Automatic. The website will now follow your system preference.");
     triggerSettingChange();
 }
+
+//Handles iOS timestamp or date schenanigans
+function parseIOSDate(dateStr) {
+    if (!dateStr) return new Date();
+    // Converts "2026-05-28 22:13:00 +0700" to "2026-05-28T22:13:00+07:00" which iOS loves
+    let formattedStr = dateStr.trim().replace(" ", "T");
+    
+    // Fix the timezone offset format if it's missing the colon (e.g., +0700 to +07:00)
+    if (formattedStr.match(/[+-]\d{4}$/)) {
+        formattedStr = formattedStr.replace(/([+-]\d{2})(\d{2})$/, "$1:$2");
+    }
+    
+    return new Date(formattedStr);
+}
+
+
 
 function fetchNews(bypass) {
     if (window.location.pathname === '/' || window.location.pathname === '/index.html' || window.location.pathname === '/Users/mac/Documents/GitHub/MunireachhVitye.github.io/index.html' || bypass === true) {
@@ -79,7 +95,7 @@ function fetchNews(bypass) {
             if (item.editContent) return item.editContent;
             else return "";
         }
-        newsItem.innerHTML = `Date: ${new Date(item.date)}<br>${nameProtocol()}${editedContent()}<br>Type: ${typeContent(item.type)}<br>${item.content}<br>${checkedit()}`;
+        newsItem.innerHTML = `Date: ${parseIOSDate(item.date)}<br>${nameProtocol()}${editedContent()}<br>Type: ${typeContent(item.type)}<br>${item.content}<br>${checkedit()}`;
         newsUpdatesDiv.appendChild(newsItem);
     })
     .catch(error => {
