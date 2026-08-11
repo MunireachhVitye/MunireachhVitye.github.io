@@ -61,7 +61,10 @@ function parseIOSDate(dateStr) {
     if (formattedStr.match(/[+-]\d{4}$/)) {
         formattedStr = formattedStr.replace(/([+-]\d{2})(\d{2})$/, "$1:$2");
     }
-    
+    if (new Date(formattedStr) == "Invalid Date") {
+        console.warn("Invalid date format detected. Returning original string:", dateStr);
+        return dateStr; // Return the original string if parsing fails
+    }
     return new Date(formattedStr);
     } catch (error) {
         console.error("Error parsing date:", error);
