@@ -53,6 +53,7 @@ function resetMode(){
 //Handles iOS timestamp or date schenanigans
 function parseIOSDate(dateStr) {
     if (!dateStr) return new Date();
+    try {
     // Converts "2026-05-28 22:13:00 +0700" to "2026-05-28T22:13:00+07:00" which iOS loves
     let formattedStr = dateStr.trim().replace(" ", "T");
     
@@ -62,6 +63,10 @@ function parseIOSDate(dateStr) {
     }
     
     return new Date(formattedStr);
+    } catch (error) {
+        console.error("Error parsing date:", error);
+        return dateStr; // Fallback to original date string if parsing fails
+    }
 }
 
 
@@ -197,9 +202,15 @@ else if (today.getMonth() === 3 && today.getDate() === 14 || today.getMonth() ==
 }
 else if (today.getMonth() === 7 && today.getDate() === 10 || today.getMonth() === 7 && today.getDate() === 11){
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
-    console.log("28-29 Aug. Triggering Oh shit it's Bacii exams")
+    console.log("10-11 Aug. Triggering Oh shit it's Bacii exams")
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Men. Get ready for war. BacII is here.")
+}
+else if (today.getMonth() === 9 && today.getDate() === 30 || today.getMonth() === 9 && today.getDate() === 31){
+    if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
+    console.log("30-31 Oct. Triggering Oh shit it's Bacii exams. Wait no it's results day dumbass.")
+    sessionStorage.setItem("readSystemNews", new Date().toDateString());
+    showCustomAlert("សូមទៅមើលលទ្ធផលបាក់ឌុបផង")
 } else {
     console.log("Cya next year!");
 }
@@ -245,11 +256,11 @@ function usernameFind(){
 function injectTimer(){
     const timerDiv = document.getElementById('timer');
     if (!timerDiv) return;
-    const targetDate = new Date('2026-08-10T07:00:00');
+    const targetDate = new Date('2026-10-30T07:00:00');
     const now = new Date();
     const diff = targetDate - now;
     if (diff <= 0) {
-        timerDiv.innerHTML = '<center><h1>Men. Get Ready for War.</h2></center>';
+        timerDiv.innerHTML = '<center><h1>Result day is here. Please check your result at the place you took your BacII.</h2></center>';
         return;
     
     }
@@ -257,6 +268,6 @@ function injectTimer(){
     const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
     const minutes = Math.floor((diff / (1000 * 60)) % 60);
     const seconds = Math.floor((diff / 1000) % 60);
-    timerDiv.innerHTML = `<center><h2 style="color: red">Countdown to BacII: ${days}d ${hours}h ${minutes}m ${seconds}s</h2></center>`;
+    timerDiv.innerHTML = `<center><h2 style="color: red">Countdown to BacII Result: ${days}d ${hours}h ${minutes}m ${seconds}s</h2></center>`;
     setTimeout(injectTimer, 1000);
 }

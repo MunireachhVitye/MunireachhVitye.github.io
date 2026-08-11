@@ -95,7 +95,7 @@ html {
   scroll-behavior: smooth;
 }
 html, body {
-  font-family: mwf-segoe, UI,Segoe,sans-serif;
+  font-family: mwf-segoe, UI, Segoe, "KhmerOS Siemreap", sans-serif;
   line-height: normal;
   -webkit-font-smoothing: antialiased;
 }
@@ -330,4 +330,18 @@ details[open] summary {
 
 .ocr-a {
     font-family: 'OCR-A', monospace; /* Use the custom font */
+}
+
+/* Khmer font — auto-activates for U+1780–U+17FF (Khmer Unicode block) */
+@font-face {
+  font-family: 'KhmerOS Siemreap';
+  src: url('./KhmerOS_siemreap.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+  unicode-range:
+    U+1780-17FF, /* Khmer */
+    U+19E0-19FF, /* Khmer symbols */
+    U+200C,      /* ZWNJ */
+    U+25CC;      /* dotted circle */
 }
