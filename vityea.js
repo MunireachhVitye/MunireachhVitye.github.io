@@ -209,7 +209,7 @@ else if (today.getMonth() === 7 && today.getDate() === 10 || today.getMonth() ==
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
     showCustomAlert("Men. Get ready for war. BacII is here.")
 }
-else if (today.getMonth() === 9 && today.getDate() === 30 || today.getMonth() === 9 && today.getDate() === 31){
+else if (today.getMonth() === 8 && today.getDate() === 2){
     if (sessionStorage.getItem("readSystemNews") === new Date().toDateString()) return console.log("System news already read for today.");
     console.log("30-31 Oct. Triggering Oh shit it's Bacii exams. Wait no it's results day dumbass.")
     sessionStorage.setItem("readSystemNews", new Date().toDateString());
@@ -259,7 +259,7 @@ function usernameFind(){
 function injectTimer(){
     const timerDiv = document.getElementById('timer');
     if (!timerDiv) return;
-    const targetDate = new Date('2026-10-30T07:00:00');
+    const targetDate = new Date('2026-09-02T07:00:00');
     const now = new Date();
     const diff = targetDate - now;
     if (diff <= 0) {

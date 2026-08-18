@@ -158,5 +158,20 @@
         "type": "info",
         "edited": false,
         "content": "[Khmer Text. For my khmer people]<br>ទើបប្រលងបាក់ឌុបហើយ<br>សង្ឃឹមថាជាប់ចុះ<br><br>អត្ដបទ៖ ណន មុនីរាជវិទ្យា"
+    },
+    {
+        "name": "Vityea Website Mitigations Officer",
+        "date": "2026-08-16 07:18:57 +0700",
+        "type": "news",
+        "edited": true,
+        "content": "Partial Mediation Status: <b>Activated</b>",
+        "editContent": "Status: <b>Investigating</b><br>Last Updated: <b>Sunday 16 August 2026 at 7:28 AM</b><br>Solution: Deployed Temporary Page via Cloudflare."
+    },
+    {
+        "name": "Vityea Website Mitigations Officer",
+        "date": "2026-08-18 20:00:00 +0700",
+        "type": "news",
+        "edited": false,
+        "content": "Partial Mediation Status: <b>Activated</b><br>Status: <b>Solved</b><br>Last Updated: <b>Tuesday 18 August 2026 at 8:00 PM</b><br>The website is back to normal. Previous issues have been resolved. Thank you for your patience.<br>From: Vityea Website Mitigations Officer."
     }
 ]
