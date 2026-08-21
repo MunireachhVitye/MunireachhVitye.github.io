@@ -173,5 +173,12 @@
         "type": "news",
         "edited": false,
         "content": "Partial Mediation Status: <b>Activated</b><br>Status: <b>Solved</b><br>Last Updated: <b>Tuesday 18 August 2026 at 8:00 PM</b><br>The website is back to normal. Previous issues have been resolved. Thank you for your patience.<br>From: Vityea Website Mitigations Officer."
+    },
+    {
+        "name": "Nan Munireachh Vityea",
+        "date": "2026-08-21 14:28:00 +0700",
+        "type": "news",
+        "edited": false,
+        "content": "Hello!<br>I have deployed the domain <b>access.us.kg</b>.<br>This domain is way to login securely to access features and products presented by Vityea CloudPOS or projects I've made personally.<br>I will start migration later this year and all old logins will be redirected to this new domain.<br>Deployed by: Vityea.<br><br>Psst: Enjoy some of my playlists too: <iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/0vAZAAtJptSeLLP4NUXNY4?utm_source=generator\" width=\"50%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe><br><br>"
     }
 ]

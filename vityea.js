@@ -103,13 +103,20 @@ function fetchNews(bypass) {
             if (item.editContent) return item.editContent;
             else return "";
         }
-        if (data.length-1 === 20 && item.type === "info"){
+        if (data.length-1 === 20 && item.type === "info" || data.length-1 === 24 && item.type === "news"){
             // 1. Define your curated playlist of Spotify Track IDs
 // (You grab these from the "Share -> Copy Link" button on Spotify)
 const spotifyPlaylist = [
     "0vAZAAtJptSeLLP4NUXNY4", // Beat It - Michael Jackson
-    "3a0EbPwMiu3lznnjCiQ0OI", // Decade of Love - Norith
-    "3O7GKtpgTQnv5SfxGhJhI0"  // Sora - YuuHai
+    "6E8pTCHP9vtN1n9qfrPSFC", // Decade of Love - Norith
+    "3O7GKtpgTQnv5SfxGhJhI0",  // Sora - YuuHai
+    "6zwC3vsCniAGu6WpOkg6qV",    //THIÊN ĐƯỜNG VỚI NGƯỜI MÌNH THƯƠNG
+    "3unbxq3lYRMOKqhw5g41ON", // Mou Pei Na (មកពីណា) - Sinn Sisamouth, Ros Serey Sothea
+    "1ruS87sSivPOgZKjPNamov", // FDJ (Freie Deutsche Jugend) - IFA Wartburg
+    //"3i5yV30C8kFn84q5qIh2sY", //Lighter - Jelly Roll
+    //Nah im skipping that just to save your ear
+    "4XzytmfiLksTydcnOETxZi" //Huos Haenuy Bong (It's too late) - Poev Vanary
+
 ];
 
 // 2. Pick a random track from the array
@@ -181,6 +188,27 @@ if (document.getElementById('customAlert')) {
     document.body.appendChild(alertDiv);
 }
 
+function showCustomConfirm(message, callback, cancelCallback){
+    if (document.getElementById('customConfirm')) {
+        document.getElementById('confirmMessage').innerHTML = message;
+        document.getElementById('confirmOK').setAttribute('onclick', callback + '(); closeCustomConfirm();');
+        document.getElementById('confirmCancel').setAttribute('onclick', cancelCallback + '(); closeCustomConfirm();');
+        showConfirm();
+        return;
+    }
+    var confirmHTML = `<div id="customConfirm" class="alert" style="display: flex;">
+        <div class="alert-content">
+            <p id="confirmMessage">${message}</p>
+            <button onclick="${callback}(); closeCustomConfirm();" id="confirmOK" class="border black btn">OK</button>
+            <button onclick="${cancelCallback}(); closeCustomConfirm();" id="confirmCancel" class="border black btn">Cancel</button>
+        </div>
+    </div>`;
+    var confirmDiv = document.createElement('div');
+    confirmDiv.innerHTML = confirmHTML;
+    document.body.appendChild(confirmDiv);
+
+}
+
 function systemNews(){
     const today = new Date();
 //Will trigger on 09 Feb. every year, the birthday of Vityea. We will post news about Vityea and maybe some giveaways if we are feeling generous.
@@ -223,9 +251,17 @@ function showAlert(){
     document.getElementById('customAlert').style.display = 'flex';
 }
 
+function showConfirm(){
+    document.getElementById('customConfirm').style.display = 'flex';
+}
+
 function closeCustomAlert() {
   document.getElementById('customAlert').style.display = 'none';
 
+}
+
+function closeCustomConfirm() {
+    document.getElementById('customConfirm').style.display = 'none';
 }
 
 function usernameFind(){

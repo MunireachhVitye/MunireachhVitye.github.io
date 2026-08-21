@@ -7,6 +7,12 @@
   Sponsored by: Rice Premium.
   Hosted by: Cloudflare DNS and Github Pages.
   Notes: If you're here. You're being trolled. Lmao.
+
+  Update: I converted it to a real login page on the 21st of August 2026.
+  Funds used: Vityea Personal Internal IT Fund.
+  Sponsored by: Vityea CloudPOS.
+  Hosted by: Github Pags and Cloudflare DNS.
+  Notes: Old login still trolls you though. Lmao.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -58,7 +64,7 @@
 <hr>
 <p>
 Please select a login method to access the Vityea Dashboard™<br>
-  <center>
+  <!--<center>
     <button onclick="loginFail(this)" data-platform="Discord" class="btn black border">Login via&nbsp;<i class="fab fa-discord">Discord</i></button><br>
     <button onclick="loginFail(this)" data-platform="Telegram" class="btn black border">Login via&nbsp;<i class="fab fa-telegram">Telegram</i></button><br>
     <button onclick="loginFail(this)" data-platform="Facebook" class="btn black border">Login via&nbsp;<i class="fab fa-facebook">Facebook</i></button><br>
@@ -106,6 +112,12 @@ Please select a login method to access the Vityea Dashboard™<br>
     <button onclick="loginFail(this)" data-platform="Temporary Session URL" class="btn black border">Login via Temporary Session URL&nbsp;<i class="fas fa-hourglass-start"></i></button><br>
     <button onclick="loginFail(this)" data-platform="In-Person Approval" class="btn black border">Login via In-Person Approval&nbsp;<i class="fas fa-handshake"></i></button><br>
     <a href="./62718-heng.html" class="black btn border">Old Login</a>
+  </center>-->
+  <center>
+    <button onclick="loginNotRead(this)" data-platform="Discord" class="btn black border">Login via&nbsp;<i class="fab fa-discord">Discord</i></button><br>
+    <button onclick="loginRedirect(this)" data-platform="Telegram" class="btn black border">Login via&nbsp;<i class="fab fa-telegram">Telegram</i></button><br>
+    <button onclick="loginRedirect(this)" data-platform="Vityea SSO" class="btn black border">Login via&nbsp;<i class="fas fa-user-circle">Vityea SSO</i></button><br>
+    <a href="./62718-heng.html" class="black btn border">Old Login</a>
   </center>
 </p>
 <script>
@@ -115,6 +127,25 @@ Please select a login method to access the Vityea Dashboard™<br>
     const platform = icon?.innerText?.trim() || btn.getAttribute('data-platform') || "Unknown Service";
     showCustomAlert("Failed to open Login Provider: "+platform)
   }
+  loginNotRead = function(btn){
+    const icon = btn.querySelector("i");
+    console.log(icon)
+    const platform = icon?.innerText?.trim() || btn.getAttribute('data-platform') || "Unknown Service";
+    showCustomAlert("Login Provider: "+platform+" is not yet available. Please try again later.")
+  }
+  loginRedirect = function(btn){
+    const icon = btn.querySelector("i");
+    console.log(icon)
+    const platform = icon?.innerText?.trim() || btn.getAttribute('data-platform') || "Unknown Service";
+    showCustomConfirm("You will be redirected to our login provider <b>access.us.kg</b> SSO login page for "+platform+". Do you want to continue?", "authorizeLogin", "cancelLogin")
+    sessionStorage.setItem("loginPlatform", platform);
+  }
+    function authorizeLogin(){
+      window.location.href = "https://access.us.kg/login?provider="+encodeURIComponent(sessionStorage.getItem("loginPlatform"))+"&redirect_uri="+encodeURIComponent(window.location.href);
+    }
+    function cancelLogin(){
+      showCustomAlert("Login cancelled for "+sessionStorage.getItem("loginPlatform"))
+    }
 </script>
 <hr>
 <p>Files hosted on Github and served via Cloudflare.</p>
