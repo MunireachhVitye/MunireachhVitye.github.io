@@ -123,7 +123,7 @@ const spotifyPlaylist = [
 const randomTrackId = spotifyPlaylist[Math.floor(Math.random() * spotifyPlaylist.length)];
 
 // 3. Update your innerHTML assignment inside the fetchNews promise:
-newsItem.innerHTML = `
+newsItem.innerHTML = /*`
     Date: ${parseIOSDate(item.date)}<br>
     ${nameProtocol()}${editedContent()}<br>
     Type: ${typeContent(item.type)}<br>
@@ -140,7 +140,7 @@ newsItem.innerHTML = `
             loading="lazy">
     </iframe><br><br>
     From: Vityea.
-`;
+`*/ "Hello!<br>I have deployed the domain <b>access.us.kg</b>.<br>This domain is way to login securely to access features and products presented by Vityea CloudPOS or projects I've made personally.<br>I will start migration later this year and all old logins will be redirected to this new domain.<br>Deployed by: Vityea.<br><br>Psst: Enjoy some of my playlists too: <iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/"+randomTrackId+"?utm_source=generator\" width=\"50%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe><br><br>";
 return newsUpdatesDiv.appendChild(newsItem);
         }
         newsItem.innerHTML = `Date: ${parseIOSDate(item.date)}<br>${nameProtocol()}${editedContent()}<br>Type: ${typeContent(item.type)}<br>${item.content}<br>${checkedit()}`;
