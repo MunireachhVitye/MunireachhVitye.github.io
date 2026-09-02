@@ -299,7 +299,7 @@ function injectTimer(){
     const now = new Date();
     const diff = targetDate - now;
     if (diff <= 0) {
-        timerDiv.innerHTML = '<center><h1>Result day is here. Please check your result at the place you took your BacII.</h2></center>';
+        timerDiv.innerHTML = '<center><h1>BacII 2026 is over. Check your results at: <a href="https://moeys.gov.kh/kh/event/bac-ii-2026/result-bacii-26" class="black btn">https://moeys.gov.kh/kh/event/bac-ii-2026/result-bacii-26</h2></center>';
         return;
     
     }
