@@ -180,5 +180,12 @@
         "type": "news",
         "edited": false,
         "content": "Hello!<br>I have deployed the domain <b>access.us.kg</b>.<br>This domain is way to login securely to access features and products presented by Vityea CloudPOS or projects I've made personally.<br>I will start migration later this year and all old logins will be redirected to this new domain.<br>Deployed by: Vityea.<br><br>Psst: Enjoy some of my playlists too: <iframe data-testid=\"embed-iframe\" style=\"border-radius:12px\" src=\"https://open.spotify.com/embed/track/0vAZAAtJptSeLLP4NUXNY4?utm_source=generator\" width=\"50%\" height=\"152\" frameBorder=\"0\" allowfullscreen=\"\" allow=\"autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture\" loading=\"lazy\"></iframe><br><br>"
+    },
+    {
+        "name":"Nan Munireachh Vityea",
+        "date": "2026-10-31 19:34:35 +0700",
+        "type": "info",
+        "edited": false,
+        "content": "Ohhhh, Happy Halloween everyone!<br>I'm currently working on Vityea CloudPOS right now with 0 help.<br>You may sign up for beta-testing by contacting my Telegram below:<br><a href=\"https://t.me/nanmunireachhvityea\" target=\"_blank\" rel=\"noopener\" class=\"black btn\">@nanmunireachhvityea</a><br>More importantly, Vityea CloudPOS will be getting a new fresh look and the UIs will be more intuitive.<br>PS: The Beta-test is limited to 10 persons only, enrol while you can!<br>From: Vityea."
     }
 ]

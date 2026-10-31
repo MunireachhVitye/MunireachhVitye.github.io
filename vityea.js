@@ -20,8 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
     //BacII is coming, we need a timer for that.
     const systemNewsDiv = document.getElementById('systemNews');
     if (!systemNewsDiv) return;
-    systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><br><a href="timer.html" class="blue">Expand Timer</a><br><div id="timer"></div>';
-    injectTimer();
+    //systemNewsDiv.innerHTML = '<h3>System News: BacII is coming.</h3><br><a href="timer.html" class="blue">Expand Timer</a><br><div id="timer"></div>';
+    //injectTimer();
+    systemNewsDiv.innerHTML = '<h3>System News: Our websites isn\'t affected by the PHP and Node.js problems. It\'s mostly Cloudflare and One Node.js site.</h3>'
     //End of War
 })
 
