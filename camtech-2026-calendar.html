@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="khm">
+<head>
+<meta charset="utf-8">
+	<title>CamTech Schedule Year 1 2026-2027 [Expanded]</title>
+    <link href="./ms.css" rel="stylesheet" type="text/css" />
+    <script src="./font_awesome.all.js"></script>
+</head>
+<body class="light-mode">
+<h3>CamTech Schedule Year 1 2026-2027 [Expanded]</h3>
+<p>Printable Designed by Vityea. Link: https://vityea.us.kg/camtech-2026-calendar.html</p>
+<noscript><h2>You have disabled JavaScript. So the print button doesn't work. Please use CTRL+P or CMD+P</h2></noscript>
+<a href="./camtech-2026.html" id="returnBTN" class="black btn border">Return?</a>&nbsp;&nbsp;&nbsp;<button id="printBTN" onclick="genPrint()" class="black btn border">Print</button>
+    <style>
+        body { /*font-family: Arial, sans-serif;*/ margin: 20px; }
+        .excel-grid { border-collapse: collapse; margin: 15px 0; }
+        .excel-grid td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            min-width: 80px;
+            height: 20px;
+            white-space: nowrap; 
+            outline: none; /* Remove focus outline */
+        }
+        .header-cell {
+            font-weight: bold;
+            background-color: #e0e0e0;
+        }
+        .editable[contenteditable="true"] {
+            background-color: #fffacd; /* Light yellow when editable */
+            border: 1px solid #3498db; /* Blue border for focus */
+        }
+        .crossout {
+            text-decoration: line-through;
+        }
+    </style>
+<table class="excel-grid">
+        <tr>
+            <th colspan="7" style="text-align: center;">កាលវិភាគម៉ោងព្រឹក</th>
+        </tr>
+        <tr>
+            <th>ម៉ោង/ថ្ងៃ</th>
+            <th>ច័ន្ទ</th>
+            <th>អង្គារ</th>
+            <th>ពុធ</th>
+            <th>ព្រហស្បត៍</th>
+            <th>សុក្រ</th>
+            <th>សៅរ៍</th>
+        </tr>
+      <!--Wake up, Go to school, Study, Repeat-->
+        <tr>
+            <th scope="row" id="row1">8h30m - 11h30m</th>
+            <td>HUM101 - Conference Hall</td>
+            <td>FECO102 - R201</td>
+            <td>INT101 - Conference Hall</td>
+            <td>FECO101 - R502</td>
+            <td>PRO101 - R408</td>
+            <td>RMB102 - R409</td>
+        </tr>
+        <tr>
+            <th colspan="7" style="text-align: center;">កាលវិភាគម៉ោងល្ងាច</th>
+        </tr>
+      <!--Get back to work-->
+        <tr scope="row">
+            <th id="row5">1h30m - 4h30m</th>
+            <td>RMB101 - R409</td>
+            <td>FREE</td>
+            <td>INT101 - FENG-HuB</td>
+            <td>ICS 201 - R407</td>
+            <td>KHM101 - Conference Hall</td>
+            <td>FREE</td>
+        </tr>
+    </table>
+    This schedule is subject to change. Subjected to CamTech Terms.<br>
+    Below is the Information of the classroom and subject with their respective teacher names.<br>
+        <table>
+        <tr>
+            <th>Classroom</th>
+            <th>Subject</th>
+            <th>Teacher</th>
+        </tr>
+        <tr>
+            <td>R201</td>
+            <td>FECO102: Algorithm 1</td>
+            <td>Mr. Lay Vathana</td>
+        </tr>
+        <tr>
+            <td>R502</td>
+            <td>FECO101: Mathematics for Engineering 1</td>
+            <td>Mr. Suon Sereyvattanak</td>
+        </tr>
+        <tr>
+            <td>R409 [Monday]</td>
+            <td>RMB101: Principles of Economics</td>
+            <td>Dr. Meginn Colleen Rae Kartini</td>
+        </tr>
+        <tr>
+            <td>R409 [Saturday]</td>
+            <td>RMB102: Introduction to Risk Management</td>
+            <td>Dr. Keo Vuthy</td>
+        </tr>
+        <tr>
+            <td>Conference Hall [Friday]</td>
+            <td>KHM101: Introduction to Khmer Studies and History</td>
+            <td>Dr. Piseth Phlong, Dr. Sieng Emtotim</td>
+        </tr>
+        <tr>
+            <td>Conference Hall [Monday]</td>
+            <td>HUM101: Introduction to Humanities</td>
+            <td>Prof. Dr. Chhem Kieth Rethy</td>
+        </tr>
+        <tr>
+            <td>R408</td>
+            <td>PRO101: Computer Fundamentals</td>
+            <td>Mr. Prum Lipheng</td>
+        </tr>
+        <tr>
+            <td>Conference Hall [Wednesday]</td>
+            <td>INT101: Internship (Design Thinking)</td>
+            <td>Mr. Chhim Tithamatak</td>
+        </tr>
+        <tr>
+            <td>R407</td>
+            <td>ICS 201: Interpersonal Communications Skills (Elective Course)</td>
+            <td>Dr. Ros Sayumphu</td>
+        </tr>
+        <tr>
+            <td>FENG-HuB</td>
+            <td>INT101: INTERNSHIP 101</td>
+            <td>Mr. Phum Lipheng, Mr. Dechkun Chhay, Ms. Neng Hseing Noom Khay, Mr. Kieng Yang</td>
+        </tr>
+    </table>
+    <script>
+            (()=>{
+            console.log("%cvityea.us.kg", "color: #2defc2; font-size: 20px; font-weight: bold;", "\nPowered by Vityea.\nFunded by my mother.");
+            console.log("Ahh cheeky boy of a software engineer. You can copy the source code.");
+            //Check if the public class time should be morning or afternoon.
+        })()
+        function genPrint(){
+            var btnExpand = document.getElementById("printBTN");
+            var returnBTN = document.getElementById("returnBTN");
+            btnExpand.style.display = "none";
+            returnBTN.style.display = "none";
+            window.print();
+            setTimeout(() => {
+                btnExpand.removeAttribute("style");
+                returnBTN.removeAttribute("style");
+            }, 1000)
+        }
+    </script>
+<hr>
+</body>
+</html>
