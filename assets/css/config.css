@@ -1,0 +1,91 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif;
+  margin: auto;
+  max-width: 38rem;
+  padding: 2rem;
+}
+a.black:hover{
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+a.black{
+  color: black;
+  cursor: pointer;
+}
+
+a.yellow:hover{
+  background: yellow;
+  color: white;
+  cursor: pointer;
+}
+a.yellow{
+  color: yellow;
+  cursor: pointer;
+}
+
+a.red:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+a.red{
+  color: red;
+  cursor: pointer;
+}
+
+a.green:hover{
+  background: green;
+  color: white;
+  cursor: pointer;
+}
+a.green{
+  color: green;
+  cursor: pointer;
+}
+
+a.cyan:hover{
+  background: cyan;
+  color: white;
+  cursor: pointer;
+}
+a.cyan{
+  color: cyan;
+  cursor: pointer;
+}
+
+a.warning:hover{
+  background: black;
+  color: yellow;
+  cursor: pointer;
+}
+a.warning{
+  color: black;
+  cursor: pointer;
+}
+
+a.danger:hover{
+  background: red;
+  color: white;
+  cursor: pointer;
+}
+a.danger{
+  color: black;
+  cursor: pointer;
+}
+/*Shows word in Mono*/
+.mono {
+  font-family: consolas;
+}
+/*Shows word as Bold*/
+.bold {
+  font-weight: bold;
+}
+
+.pointer {
+  cursor: pointer;
+}
